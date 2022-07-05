@@ -2,7 +2,7 @@
 
 const fakeArticles = [
   {
-    title: "fake article 1",
+    title: "fakeArticle1",
     content: [
       {
         section: "fake section name 1",
@@ -22,7 +22,7 @@ const fakeArticles = [
     ],
   },
   {
-    title: "fake article 2",
+    title: "fakeArticle2",
     content: [
       {
         section: "fake section name 1",
@@ -42,7 +42,7 @@ const fakeArticles = [
     ],
   },
   {
-    title: "fake article 3",
+    title: "fakeArticle3",
     content: [
       {
         section: "fake section name 1",

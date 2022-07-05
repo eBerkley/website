@@ -1,17 +1,19 @@
 :root {
   --primary: rgb(255, 255, 255);
   --secondary: rgb(0, 0, 0);
+  --nice: rgb(70, 70, 70);
   --xSmall: 1.2rem;
   --small: 5rem;
   --medium: 10rem;
   --large: 15rem;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0px;
   color: var(--secondary);
   font-family: Arial, Helvetica, sans-serif;
-
+  height: 100vh;
 }
 
 button:hover {
@@ -23,43 +25,70 @@ button:hover {
   transition-duration: 0.5s;
 }
 
+#root {
+  max-height: 100vh;
+}
 
 .App {
   background-color: var(--primary);
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .NavBar {
   padding: var(--xSmall) var(--large);
   color: var(--secondary);
   border-bottom: 1px solid rgb(70, 70, 70);
+  position: sticky;
+  top: 0;
+  background-color: var(--primary);
+  z-index: 1000;
+  /* flex: 1; */
+  /* width: 100% */
 }
 
 .NavBar__a {
+  border: 1px solid var(--secondary);
+  border-radius: 15px;
+  padding: 10px;
   margin: 5px;
+  text-decoration: none;
+  color: var(--secondary);
+  background-color: var(--primary);
 }
 
 .NavBar__a--isActive {
-  color: red
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+.NavBar__ThemeButton {
+  font-weight: bold;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: var(--secondary);
 }
 
 .BelowNav {
-  padding: var(--small) var(--large) 0;
+  padding: 0 var(--large);
   display: flex;
 }
 
 main {
-  flex: 6;
-  border: 1px solid black;
-  padding: 0 var(--xSmall)
+  flex: 4;
+  padding: var(--xSmall) var(--small);
+  max-height: 100%;
 }
 
 section {
   flex: 1;
   display: flex;
   flex-direction: column;
-  border: 1px solid gray;
   padding: var(--xSmall);
+  position: sticky;
+  top: 5rem;
+  height: fit-content;
 }
 
 .Section__ArticleName {
@@ -67,15 +96,36 @@ section {
   transition-property: text-shadow, color;
   transition-duration: 0.5s;
   margin: 5px 0;
+  text-decoration: none;
 }
+
 .Section__ArticleName:hover {
   text-shadow: 0px 0px 1px var(--secondary);
+}
+
+.Section__ArticleName--isActive {
+  text-decoration: underline;
 }
 
 aside {
   flex: 1;
   display: flex;
   flex-direction: column;
-  border: 1px solid gray;
   padding: var(--xSmall);
+  position: sticky;
+  top: 5rem;
+  height: fit-content;
+}
+
+.AsideDiv {
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid gray;
+  padding-left: 15px;
+}
+
+.AsideDiv__A {
+  padding: 5px 0;
+  color: var(--secondary);
+  text-decoration: none;
 }

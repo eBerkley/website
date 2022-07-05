@@ -1,18 +1,23 @@
-import { useParams } from "react-router-dom"
+import { useParams, Navigate } from "react-router-dom"
 import ArticleMain from "../components/ArticleMain"
 import HeadersAside from "../components/HeadersAside"
 import fakeArticles from "../utils/fakeArticles";
 
 // tells main and aside components what article to display
 export default function Article() {
-
-  const { articleName = fakeArticles[0].title } = useParams();
+  const { articleName } = useParams();
   const article = fakeArticles.find(({title}) => title === articleName)
 
-  return(
+  return (
     <>
-      <ArticleMain article={article} />
-      <HeadersAside article={article.content} />
+      {articleName ? (
+        <>
+          <ArticleMain article={article} />
+          <HeadersAside article={article.content} />
+        </>
+      ) : (
+        <Navigate to="./fakeArticle1" />
+      )}
     </>
-  )
+  );
 }

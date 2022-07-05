@@ -18,6 +18,6 @@ export default function ThemeButton() {
   }, [darkMode])
 
   return (
-    <button onClick={() => setDarkMode(current => !current)} >Toggle Light Mode</button>
+    <button className="NavBar__ThemeButton"onClick={() => setDarkMode(current => !current)} >Toggle Light Mode</button>
   )
 }
