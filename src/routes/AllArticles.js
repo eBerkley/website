@@ -6,7 +6,9 @@ import fakeArticles from "../utils/fakeArticles";
 export default function AllArticles() {
   return (
     <div className="BelowNav">
-      <ArticlesSection articles={fakeArticles} />
+      <nav className="MonitorViewNav">
+        <ArticlesSection articles={fakeArticles} />
+      </nav>
       <Outlet />
     </div>
   );

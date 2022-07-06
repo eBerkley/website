@@ -1,7 +1,4 @@
-aside {
-  /* flex: 1; */
-  display: flex;
-  flex-direction: column;
+.SectionNav {
   padding: var(--xSmall);
   position: sticky;
   top: 5rem;
@@ -22,3 +19,4 @@ aside {
   transition: color var(--transition-timing);
   text-decoration: none;
 }
+

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 // parent element AllArticles renders outlet
-export default function ArticlesSection({ articles }) {
+export default function ArticlesSection(props) {
   const setClassName = ({ isActive }) => {
     if (isActive) {
       return "ArticleNav__ArticleName ArticleNav__ArticleName--isActive";
@@ -13,7 +13,7 @@ export default function ArticlesSection({ articles }) {
   return (
     <nav className="ArticleNav">
       <h3>Articles</h3>
-      {articles.map((el) => (
+      {props.articles.map((el) => (
         <NavLink
           to={`/articles/${el.title}`}
           className={setClassName}

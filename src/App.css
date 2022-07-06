@@ -28,7 +28,7 @@
   /* font sizes */
   --large-font: 3rem;
   --medium-font: 2rem;
-  --small-font: 1.3rem;
+  --small-font: 1.5rem;
 
 }
 
@@ -56,8 +56,14 @@
 @media screen and (max-width: 1200px) {
   :root {
     --hBodyPadding: var(--xSmall);
-    --hMainPadding: 0;
+    /* --hMainPadding: 0; */
+
+    --large-font: 2.5rem;
+    --medium-font: 2rem;
+    --small-font: 1.3rem;
   }
+
+
 }
 
 html {
