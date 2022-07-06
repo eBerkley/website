@@ -1,12 +1,12 @@
-import { useParams, Navigate } from "react-router-dom"
-import ArticleMain from "../components/ArticleMain"
-import HeadersAside from "../components/HeadersAside"
+import { useParams, Navigate } from "react-router-dom";
+import ArticleMain from "../components/ArticleMain";
+import HeadersAside from "../components/HeadersAside";
 import fakeArticles from "../utils/fakeArticles";
 
 // tells main and aside components what article to display
 export default function Article() {
   const { articleName } = useParams();
-  const article = fakeArticles.find(({title}) => title === articleName)
+  const article = fakeArticles.find(({ title }) => title === articleName);
 
   return (
     <>

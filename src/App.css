@@ -1,17 +1,36 @@
+@import "./styles/NavBar.css";
+@import "./styles/ArticleNav.css";
+@import "./styles/Aside.css";
+@import "./styles/Main.css";
+@import "./styles/Body.css";
+
 :root {
+  /* colors */
   --primary: hsl(0, 0%, 100%);
   --secondary: hsl(0, 0%, 0%);
   --tertiary: hsl(0, 0%, 40%);
-  --transition-timing: 0.5s;
+
+  /* distances */
   --xSmall: 1.2rem;
   --small: 5rem;
   --medium: 10rem;
   --large: 15rem;
+
+  /* animations */
+  --transition-timing: 0.5s;
   scroll-behavior: smooth;
   scroll-padding-top: var(--small);
-  
-}
 
+  /* responsive paddings */
+  --hBodyPadding: var(--large);
+  --hMainPadding: var(--small);
+
+  /* font sizes */
+  --large-font: 3rem;
+  --medium-font: 2rem;
+  --small-font: 1.3rem;
+
+}
 
 @media (prefers-reduced-motion: reduce) {
   :root {
@@ -20,172 +39,29 @@
   }
 }
 
-body {
-  margin: 0px;
-  color: var(--secondary);
+@media screen and (max-width: 1700px) {
+  :root {
+    --hBodyPadding: var(--medium);
+
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  :root {
+    --hBodyPadding: var(--small);
+    --hMainPadding: var(--xSmall);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+    --hBodyPadding: var(--xSmall);
+    --hMainPadding: 0;
+  }
+}
+
+html {
   font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
-  overflow-y: auto;
-  transition: color var(--transition-timing);
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-.App {
-  background-color: var(--primary);
-  transition: background-color var(--transition-timing);
-  /* height: 100vh; */
-  /* overflow-y: auto; */
-}
-
-.NavBar {
-  padding: var(--xSmall) var(--large);
-  color: var(--secondary);
-  border-bottom: 1px solid var(--tertiary);
-  position: sticky;
-  top: 0;
-  background-color: var(--primary);
-  transition: background-color var(--transition-timing);
-  z-index: 1000;
-  /* flex: 1; */
-  /* width: 100% */
-}
-
-.NavBar__a {
-  border: 1px solid var(--secondary);
-  border-radius: 15px;
-  padding: 10px;
-  margin: 5px;
-  text-decoration: none;
-  color: var(--secondary);
-  background-color: var(--primary);
-}
-
-.NavBar__a--isActive {
-  background-color: var(--secondary);
-  color: var(--primary);
-}
-
-.NavBar__ThemeSelector {
-  display: inline-block;
-}
-
-.NavBar__ThemeButton {
-  font-weight: bold;
-  border-style: solid;
-  border-radius: 5px;
-  border-width: 1px;
-  border-color: var(--secondary);
-  flex: 1;
-}
-
-.NavBar__Collapsable {
-  display: flex;
-  flex-direction: column;
-  overflow-y: hidden;
-  max-height: fit-content;
-  transition: all var(--transition-timing) ease-in-out;
-  position:absolute;
-}
-
-.NavBar__Collapsable--Collapsed {
-  height: 0;
-}
-
-.NavBar__Collapsable--Uncollapsed {
-  height: 5rem;
-}
-
-
-.NavBar__ThemeOption {
-  font-weight: bold;
-  border-style: solid;
-  border-radius: 5px;
-  border-width: 1px;
-}
-
-.NavBar__ThemeOption--isActive {
-  font-style: italic;
-}
-
-.NavBar__Light {
-  color:rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  border-color: rgb(0, 0, 0);
-}
-
-.NavBar__Dark {
-  color: rgb(255, 255, 255);
-  background-color: rgb(30, 30, 30);
-  border-color: rgb(255, 255, 255);
-}
-
-.NavBar__High-Contrast {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
-  border-color: rgb(255, 255, 255);
-}
-
-.BelowNav {
-  padding: 0 var(--large);
-  display: flex;
-}
-
-main {
-  flex: 4;
-  padding: var(--xSmall) var(--small);
-  max-height: 100%;
-}
-
-.Section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: var(--xSmall);
-  position: sticky;
-  top: 5rem;
-  height: fit-content;
-}
-
-/* animation likely to be changed */
-.Section__ArticleName {
-  color: var(--secondary);
-  transition-property: text-shadow, color;
-  transition-duration: var(--transition-timing);
-  margin: 5px 0;
-  text-decoration: none;
-}
-
-.Section__ArticleName:hover {
-  text-shadow: 0px 0px 1px var(--secondary);
-}
-
-.Section__ArticleName--isActive {
-  text-decoration: underline;
-}
-
-aside {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: var(--xSmall);
-  position: sticky;
-  top: 5rem;
-  height: fit-content;
-}
-
-.AsideDiv {
-  display: flex;
-  flex-direction: column;
-  border-left: 2px solid var(--tertiary);
-  padding-left: 15px;
-}
-
-.AsideDiv__A {
-  padding: 5px 0;
   color: var(--secondary);
   transition: color var(--transition-timing);
-  text-decoration: none;
 }

@@ -1,0 +1,24 @@
+aside {
+  /* flex: 1; */
+  display: flex;
+  flex-direction: column;
+  padding: var(--xSmall);
+  position: sticky;
+  top: 5rem;
+  height: fit-content;
+  width: fit-content;
+}
+
+.AsideDiv {
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid var(--tertiary);
+  padding-left: 15px;
+}
+
+.AsideDiv__A {
+  padding: 5px 0;
+  color: var(--secondary);
+  transition: color var(--transition-timing);
+  text-decoration: none;
+}

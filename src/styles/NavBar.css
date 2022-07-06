@@ -1,0 +1,85 @@
+.NavBar {
+  padding: var(--xSmall) var(--hBodyPadding);
+  color: var(--secondary);
+  border-bottom: 1px solid var(--tertiary);
+  position: sticky;
+  top: 0;
+  background-color: var(--primary);
+  transition: background-color var(--transition-timing);
+
+}
+
+.NavBar__a {
+  border: 1px solid var(--secondary);
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px;
+  text-decoration: none;
+  color: var(--secondary);
+  background-color: var(--primary);
+}
+
+.NavBar__a--isActive {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+.NavBar__ThemeSelector {
+  display: inline-block;
+}
+
+.NavBar__ThemeButton {
+  font-weight: bold;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: var(--secondary);
+  flex: 1;
+}
+
+.NavBar__Collapsable {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  max-height: fit-content;
+  transition: all var(--transition-timing) ease-in-out;
+  position: absolute;
+}
+
+.NavBar__Collapsable--Collapsed {
+  height: 0;
+}
+
+.NavBar__Collapsable--Uncollapsed {
+  height: 5rem;
+}
+
+
+.NavBar__ThemeOption {
+  font-weight: bold;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+}
+
+.NavBar__ThemeOption--isActive {
+  font-style: italic;
+}
+
+.NavBar__Light {
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(0, 0, 0);
+}
+
+.NavBar__Dark {
+  color: rgb(255, 255, 255);
+  background-color: rgb(30, 30, 30);
+  border-color: rgb(255, 255, 255);
+}
+
+.NavBar__High-Contrast {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  border-color: rgb(255, 255, 255);
+}

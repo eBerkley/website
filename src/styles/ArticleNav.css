@@ -1,0 +1,26 @@
+.ArticleNav {
+  /* flex: 1; */
+  display: flex;
+  flex-direction: column;
+  padding: var(--xSmall);
+  position: sticky;
+  top: 5rem;
+  height: fit-content;
+}
+
+/* animation likely to be changed */
+.ArticleNav__ArticleName {
+  color: var(--secondary);
+  transition-property: text-shadow, color;
+  transition-duration: var(--transition-timing);
+  margin: 5px 0;
+  text-decoration: none;
+}
+
+.ArticleNav__ArticleName:hover {
+  text-shadow: 0px 0px 1px var(--secondary);
+}
+
+.ArticleNav__ArticleName--isActive {
+  text-decoration: underline;
+}

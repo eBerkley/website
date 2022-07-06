@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import App from './App';
+import App from "./App";
 import AllArticles from "./routes/AllArticles";
-import Article from './routes/Article';
+import Article from "./routes/Article";
 
-// currently, Article and NavBar are set to direct to articles/fakeArticle1 in situations that would cause no article to be displayed while AllArticles is displayed.
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// currently, Article is set to direct to articles/fakeArticle1 in situations that would cause no article to be displayed.
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>

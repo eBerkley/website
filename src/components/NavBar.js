@@ -15,10 +15,10 @@ export default function NavBar() {
       <NavLink className={setClassName} to="/">
         Home
       </NavLink>
-      <NavLink className={setClassName} to="/articles/fakeArticle1">
+      <NavLink className={setClassName} to="/articles">
         Articles
       </NavLink>
       <ThemeButton />
-  </nav>
-  )
+    </nav>
+  );
 }

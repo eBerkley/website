@@ -63,4 +63,4 @@ const fakeArticles = [
   },
 ];
 
-export default fakeArticles
+export default fakeArticles;

@@ -2,23 +2,26 @@ import { NavLink } from "react-router-dom";
 
 // parent element AllArticles renders outlet
 export default function ArticlesSection({ articles }) {
-
   const setClassName = ({ isActive }) => {
     if (isActive) {
-      return "Section__ArticleName Section__ArticleName--isActive";
+      return "ArticleNav__ArticleName ArticleNav__ArticleName--isActive";
     } else {
-      return "Section__ArticleName";
+      return "ArticleNav__ArticleName";
     }
   };
 
   return (
-    <section className="Section">
+    <nav className="ArticleNav">
       <h3>Articles</h3>
       {articles.map((el) => (
-        <NavLink to={`/articles/${el.title}`} className={setClassName} key={el.title}>
+        <NavLink
+          to={`/articles/${el.title}`}
+          className={setClassName}
+          key={el.title}
+        >
           {el.title}
         </NavLink>
       ))}
-    </section>
+    </nav>
   );
 }

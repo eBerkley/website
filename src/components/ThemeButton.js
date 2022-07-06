@@ -2,17 +2,16 @@ import { useEffect, useState, useMemo, useRef } from "react";
 
 // colors, appearence, etc subject to change
 export default function ThemeButton() {
-  // const [ expanded, setExpanded ] = useState(false)
-  const [ theme, setTheme] = useState('Light')
-  const [ collapsed, setCollapsed ] = useState(true)
-  const collapsable = useRef()
+  const [theme, setTheme] = useState("Light");
+  const [collapsed, setCollapsed] = useState(true);
+  const collapsable = useRef();
   const collapsedClassName = useMemo(() => {
     if (collapsed) {
       return "NavBar__Collapsable NavBar__Collapsable--Collapsed";
     } else {
       return "NavBar__Collapsable NavBar__Collapsable--Uncollapsed";
     }
-  }, [collapsed])
+  }, [collapsed]);
 
   const themeButtonName = (buttonTheme) => {
     if (buttonTheme === theme) {
@@ -20,13 +19,13 @@ export default function ThemeButton() {
     } else {
       return `NavBar__ThemeOption NavBar__${buttonTheme}`;
     }
-  }
+  };
 
   useEffect(() => {
-    const r = document.querySelector(':root')
-    if (theme === 'Dark') {
-      r.style.setProperty('--primary', 'hsl(0, 0%, 10%)')
-      r.style.setProperty('--secondary', 'hsl(0, 0%, 100%)')
+    const r = document.querySelector(":root");
+    if (theme === "Dark") {
+      r.style.setProperty("--primary", "hsl(0, 0%, 10%)");
+      r.style.setProperty("--secondary", "hsl(0, 0%, 100%)");
     } else if (theme === "Light") {
       r.style.setProperty("--primary", "hsl(0, 0%, 100%)");
       r.style.setProperty("--secondary", "hsl(0, 0%, 0%)");
@@ -34,9 +33,7 @@ export default function ThemeButton() {
       r.style.setProperty("--primary", "hsl(0, 0%, 0%)");
       r.style.setProperty("--secondary", "hsl(0, 0%, 100%)");
     }
-
-  }, [theme])
-
+  }, [theme]);
 
   const listener = (e) => {
     if (!collapsable.current.contains(e.target)) {
@@ -47,15 +44,13 @@ export default function ThemeButton() {
 
   const onUnCollapse = () => {
     if (collapsed) {
-      setCollapsed(false)
-      window.addEventListener("mousedown", listener)
+      setCollapsed(false);
+      window.addEventListener("mousedown", listener);
     } else {
-      setCollapsed(true)
+      setCollapsed(true);
       window.removeEventListener("mousedown", listener);
-      
     }
-    
-  }
+  };
 
   return (
     <div ref={collapsable} className="NavBar__ThemeSelector">

@@ -1,0 +1,17 @@
+main {
+  flex: 4;
+  padding: var(--xSmall) var(--hMainPadding);
+  max-height: 100%;
+}
+
+.Main__Title {
+  font-size: var(--large-font);
+}
+
+.Main__Section {
+  font-size: var(--medium-font);
+}
+
+.Main__P {
+  font-size: var(--small-font);
+}

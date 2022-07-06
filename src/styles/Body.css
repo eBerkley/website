@@ -1,0 +1,21 @@
+body {
+  margin: 0px;
+  height: 100vh;
+  overflow-y: auto;
+
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.App {
+  background-color: var(--primary);
+  transition: background-color var(--transition-timing);
+  min-height: 100vh;
+}
+
+.BelowNav {
+  padding: 0 var(--hBodyPadding);
+  display: flex;
+}
