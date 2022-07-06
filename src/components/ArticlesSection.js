@@ -12,7 +12,7 @@ export default function ArticlesSection({ articles }) {
   };
 
   return (
-    <section>
+    <section className="Section">
       <h3>Articles</h3>
       {articles.map((el) => (
         <NavLink to={`/articles/${el.title}`} className={setClassName} key={el.title}>

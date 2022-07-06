@@ -15,7 +15,7 @@ export default function NavBar() {
       <NavLink className={setClassName} to="/">
         Home
       </NavLink>
-      <NavLink className={setClassName} to="/articles">
+      <NavLink className={setClassName} to="/articles/fakeArticle1">
         Articles
       </NavLink>
       <ThemeButton />

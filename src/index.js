@@ -7,7 +7,7 @@ import App from './App';
 import AllArticles from "./routes/AllArticles";
 import Article from './routes/Article';
 
-
+// currently, Article and NavBar are set to direct to articles/fakeArticle1 in situations that would cause no article to be displayed while AllArticles is displayed.
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
