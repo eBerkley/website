@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-export default function useWindowWidth(width) {
-  const [windowWidth, setWindowWidth] = useState(0)
+export default function useWindowWidth() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   useEffect(() => {
     const onResize = () => {
@@ -15,6 +15,7 @@ export default function useWindowWidth(width) {
     }
 
   }, [])
-
-  return width > windowWidth
+  if (windowWidth > 1200) return "monitor"
+  if (windowWidth > 800) return "tablet"
+  return "mobile"
 }

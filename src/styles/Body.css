@@ -1,21 +1,35 @@
 body {
   margin: 0px;
   height: 100vh;
-  overflow-y: auto;
-
+  background-color: var(--primary);
+  transition: background-color var(--transition-timing);
+  /* min-height: 100vh; */
+  height: 100vh;
 }
 
 button:hover {
   cursor: pointer;
 }
 
-.App {
-  background-color: var(--primary);
-  transition: background-color var(--transition-timing);
-  min-height: 100vh;
+.Subroot {
+  transition: margin-left var(--transition-timing);
+  margin-left: 0vw;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.Subroot--Expanded {
+  margin-left: var(--mobileViewSideNavWidth);
 }
 
 .BelowNav {
-  padding: 0 var(--hBodyPadding);
   display: flex;
+  min-width: 100%;
+}
+
+@media screen and (max-width: 800) {
+  .BelowNav {
+    max-width: max-content;
+  }
 }

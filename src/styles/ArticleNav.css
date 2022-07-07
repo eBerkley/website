@@ -2,14 +2,16 @@
   /* flex: 1; */
   display: flex;
   flex-direction: column;
-  padding: var(--xSmall);
+  /* padding-left: var(--hBodyPadding); */
   height: fit-content;
+  width: max-content;
 }
 
 .MonitorViewNav {
   position: sticky;
   top: 5rem;
   height: fit-content;
+  padding: 0 var(--hSideNavPadding)
 }
 
 

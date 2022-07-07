@@ -1,7 +1,7 @@
 // each header that is currently being displayed in main
 export default function HeadersAside({ article }) {
   return (
-    <aside aria-labelledby="SectionsHeader">
+    <aside className="Aside" aria-labelledby="SectionsHeader">
       <h4 id="SectionsHeader">Sections</h4>
       <div className="AsideDiv">
         {article.map((el) => (

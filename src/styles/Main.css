@@ -2,6 +2,7 @@ main {
   flex: 4;
   padding: var(--xSmall) var(--hMainPadding);
   max-height: 100%;
+  /* overflow-x: hidden; */
 }
 
 .Main__Title {

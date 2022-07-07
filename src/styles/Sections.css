@@ -1,0 +1,59 @@
+.SectionNav {
+  padding: 0 var(--hSideNavPadding);
+  position: sticky;
+  top: 5rem;
+  height: fit-content;
+  width: fit-content;
+  overflow-x: hidden;
+  /* overflow-y: auto; */
+}
+
+.SectionNav__Expander {
+  z-index: 100;
+  transition: left var(--transition-timing);
+}
+
+.Aside {
+  width: max-content;
+}
+
+.CollapsableSideNav {
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--primary);
+  transition: width var(--transition-timing);
+  border-right: 1px solid var(--tertiary);
+  position: fixed;
+  overflow-x: hidden;
+}
+
+.CollapsableSideNav--Expanded {
+  width: var(--mobileViewSideNavWidth);
+  /* width: 80vw; */
+}
+
+.CollapsableSideNav--Collapsed {
+  width: 0;
+}
+
+.CollapsableSideNav__Collapser {
+  width: var(--mobileViewSideNavWidth);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.AsideDiv {
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid var(--tertiary);
+  padding-left: 15px;
+}
+
+.AsideDiv__A {
+  padding: 5px 0;
+  color: var(--secondary);
+  transition: color var(--transition-timing);
+  text-decoration: none;
+}
+
