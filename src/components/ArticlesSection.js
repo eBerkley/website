@@ -4,14 +4,14 @@ import { NavLink } from "react-router-dom";
 export default function ArticlesSection(props) {
   const setClassName = ({ isActive }) => {
     if (isActive) {
-      return "ArticleNav__ArticleName ArticleNav__ArticleName--isActive";
+      return "SideNav__ArticleName SideNav__ArticleName--isActive";
     } else {
-      return "ArticleNav__ArticleName";
+      return "SideNav__ArticleName";
     }
   };
 
   return (
-    <nav className="ArticleNav">
+    <nav className="SideNav">
       <h3>Articles</h3>
       {props.articles.map((el) => (
         <NavLink

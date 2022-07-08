@@ -26,7 +26,7 @@ export default function Article() {
     return (
       <>
         <ArticleMain article={article} />
-        <nav className="SectionNav">
+        <nav className="SideNavContainer">
           <HeadersAside article={article.content} />
         </nav>
       </>
@@ -36,10 +36,10 @@ export default function Article() {
   if (clientDevice === "tablet") {
     return (
       <>
-        <nav className="SectionNav">
+        <div className="SideNavContainer">
           <HeadersAside article={article.content} />
           <ArticlesSection articles={fakeArticles} />
-        </nav>
+        </div>
         <ArticleMain article={article} />
       </>
     );
@@ -53,10 +53,10 @@ export default function Article() {
             <span>Press To Collapse &rarr;</span>
             <button onClick={collapse}>&times;</button>
           </div>
-          <nav className="SectionNav">
+          <div className="SideNavContainer">
             <HeadersAside article={article.content} />
             <ArticlesSection articles={fakeArticles} />
-          </nav>
+          </div>
         </div>
         <ArticleMain article={article} />
       </>

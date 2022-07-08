@@ -1,12 +1,3 @@
-.ArticleNav {
-  /* flex: 1; */
-  display: flex;
-  flex-direction: column;
-  /* padding-left: var(--hBodyPadding); */
-  height: fit-content;
-  width: max-content;
-}
-
 .MonitorViewNav {
   position: sticky;
   top: 5rem;
@@ -16,7 +7,7 @@
 
 
 /* animation likely to be changed */
-.ArticleNav__ArticleName {
+.SideNav__ArticleName {
   color: var(--secondary);
   transition-property: text-shadow, color;
   transition-duration: var(--transition-timing);
@@ -24,11 +15,11 @@
   text-decoration: none;
 }
 
-.ArticleNav__ArticleName:hover {
+.SideNav__ArticleName:hover {
   text-shadow: 0px 0px 1px var(--secondary);
 }
 
-.ArticleNav__ArticleName--isActive {
+.SideNav__ArticleName--isActive {
   text-decoration: underline;
 }
 
@@ -36,5 +27,4 @@
   .MonitorViewNav {
     display: none;
   }
-
 }

@@ -1,36 +1,39 @@
-.SectionNav {
+.SideNavContainer {
   padding: 0 var(--hSideNavPadding);
   position: sticky;
-  top: 5rem;
+  top: 6rem;
   height: fit-content;
-  width: fit-content;
-  overflow-x: hidden;
-  /* overflow-y: auto; */
 }
 
-.SectionNav__Expander {
-  z-index: 100;
-  transition: left var(--transition-timing);
-}
-
-.Aside {
+.SideNav {
   width: max-content;
+  display: flex;
+  flex-direction: column;
 }
+
+.SideNav__Section {
+  padding: 5px 0 5px 15px;
+  border-left: 2px solid var(--tertiary);
+  color: var(--secondary);
+  transition: color var(--transition-timing);
+  text-decoration: none;
+
+}
+
 
 .CollapsableSideNav {
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100vh;
   background-color: var(--primary);
   transition: width var(--transition-timing);
-  border-right: 1px solid var(--tertiary);
   position: fixed;
   overflow-x: hidden;
+  border-right: 1px solid var(--tertiary);
 }
 
 .CollapsableSideNav--Expanded {
   width: var(--mobileViewSideNavWidth);
-  /* width: 80vw; */
 }
 
 .CollapsableSideNav--Collapsed {
@@ -43,17 +46,4 @@
   justify-content: flex-end;
 }
 
-.AsideDiv {
-  display: flex;
-  flex-direction: column;
-  border-left: 2px solid var(--tertiary);
-  padding-left: 15px;
-}
-
-.AsideDiv__A {
-  padding: 5px 0;
-  color: var(--secondary);
-  transition: color var(--transition-timing);
-  text-decoration: none;
-}
 

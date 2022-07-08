@@ -19,7 +19,7 @@ root.render(
             <Route path=":articleName" element={<Article />} />
           </Route>
 
-          <Route path="*" element={<p>nothing here boss</p>} />
+          <Route path="*" element={<p>404</p>} />
         </Route>
       </Routes>
     </BrowserRouter>

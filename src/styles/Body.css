@@ -1,22 +1,27 @@
 body {
   margin: 0px;
-  height: 100vh;
   background-color: var(--primary);
   transition: background-color var(--transition-timing);
-  /* min-height: 100vh; */
-  height: 100vh;
 }
 
 button:hover {
   cursor: pointer;
 }
 
+/* for some reason firefox mobile view's #root will reposition itself when a scrolling link is pressed if it has a static position */
+#root {
+  position: fixed;
+}
+
 .Subroot {
   transition: margin-left var(--transition-timing);
   margin-left: 0vw;
-  width: 100vw;
   height: 100vh;
+  width: 100vw;
   overflow-y: auto;
+  /* overflow-x: hidden; */
+  scroll-behavior: var(--scroll-behavior);
+  scroll-padding-top: var(--small);
 }
 
 .Subroot--Expanded {
@@ -25,11 +30,4 @@ button:hover {
 
 .BelowNav {
   display: flex;
-  min-width: 100%;
-}
-
-@media screen and (max-width: 800) {
-  .BelowNav {
-    max-width: max-content;
-  }
 }

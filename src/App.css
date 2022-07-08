@@ -18,8 +18,7 @@
 
   /* animations */
   --transition-timing: 0.5s;
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--small);
+  --scroll-behavior: smooth;
 
   /* responsive variables */
   --hBodyPadding: var(--large);
@@ -34,24 +33,28 @@
 
 }
 
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--secondary);
+  transition: color var(--transition-timing);
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --transition-timing: 0s;
-    scroll-behavior: auto;
+    --scroll-behavior: auto;
   }
 }
 
 @media screen and (max-width: 2000px) {
   :root {
     --hBodyPadding: var(--medium);
-
   }
 }
 
 @media screen and (max-width: 1800px) {
   :root {
     --hBodyPadding: var(--small);
-    /* --hMainPadding: var(--xSmall); */
   }
 }
 
@@ -70,18 +73,11 @@
   :root {
     --hSideNavPadding: var(--small);
   }
-    
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 400px) {
   :root {
     --mobileViewSideNavWidth: 80vw;
   }
 }
 
-html {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--secondary);
-  transition: color var(--transition-timing);
-  overflow-x: hidden;
-}
