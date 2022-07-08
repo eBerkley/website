@@ -1,6 +1,6 @@
 @import "./styles/NavBar.css";
-@import "./styles/ArticleNav.css";
-@import "./styles/Sections.css";
+@import "./styles/SideNavCollapser.css";
+@import "./styles/SideNav.css";
 @import "./styles/Main.css";
 @import "./styles/Body.css";
 
@@ -58,10 +58,17 @@ html {
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
   :root {
     --hBodyPadding: var(--xSmall);
     --hMainPadding: var(--xSmall);
+  }
+}
+
+/* Tablet View */
+@media screen and (max-width: 1200px) {
+  :root {
+    --hBodyPadding: var(--small);
     --hSideNavPadding: var(--small);
     --large-font: 2.5rem;
     --medium-font: 2rem;
@@ -69,6 +76,14 @@ html {
   }
 }
 
+@media screen and (max-width: 1000px) {
+  :root {
+    --hBodyPadding: var(--xSmall);
+    --hSideNavPadding: var(--xSmall);
+  }
+}
+
+/* Mobile View */
 @media screen and (max-width: 800px) {
   :root {
     --hSideNavPadding: var(--small);

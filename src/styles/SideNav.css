@@ -1,12 +1,22 @@
-.MonitorViewNav {
+
+.SideNav {
+  padding: 0 var(--hSideNavPadding);
   position: sticky;
-  top: 5rem;
+  top: 6rem;
   height: fit-content;
-  padding: 0 var(--hSideNavPadding)
+  width: max-content;
+  display: flex;
+  flex-direction: column;
 }
 
+.SideNav__Section {
+  padding: 5px 0 5px 15px;
+  border-left: 2px solid var(--tertiary);
+  color: var(--secondary);
+  transition: color var(--transition-timing);
+  text-decoration: none;
+}
 
-/* animation likely to be changed */
 .SideNav__ArticleName {
   color: var(--secondary);
   transition-property: text-shadow, color;
@@ -23,8 +33,3 @@
   text-decoration: underline;
 }
 
-@media screen and (max-width: 1200px) {
-  .MonitorViewNav {
-    display: none;
-  }
-}

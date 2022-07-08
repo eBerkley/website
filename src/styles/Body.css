@@ -8,18 +8,15 @@ button:hover {
   cursor: pointer;
 }
 
-/* for some reason firefox mobile view's #root will reposition itself when a scrolling link is pressed if it has a static position */
 #root {
   position: fixed;
 }
 
 .Subroot {
   transition: margin-left var(--transition-timing);
-  margin-left: 0vw;
   height: 100vh;
   width: 100vw;
   overflow-y: auto;
-  /* overflow-x: hidden; */
   scroll-behavior: var(--scroll-behavior);
   scroll-padding-top: var(--small);
 }

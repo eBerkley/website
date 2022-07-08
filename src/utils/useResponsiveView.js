@@ -1,12 +1,13 @@
 import { createContext, useContext, useState, useEffect, useRef } from 'react';
 import useWindowWidth from './useWindowWidth';
 
-const CurrentView = createContext("desktop")
+const CurrentView = createContext({clientDevice: "", sideNavExpanded: false, expand: () => {}, collapse: () => {}})
 
 export function ResponseProvider({ children }){
   const clientDevice = useWindowWidth()
   const [sideNavExpanded, setSideNavExpanded] = useState(false)
   const subRoot = useRef()
+
   const expand = () => {
     setSideNavExpanded(true);
   }
@@ -16,12 +17,18 @@ export function ResponseProvider({ children }){
   }
 
   useEffect(() => {
-    if (sideNavExpanded && clientDevice === "mobile") {
-      subRoot.current.className="Subroot Subroot--Expanded"
+    if (clientDevice !== "mobile") {
+      setSideNavExpanded(false)
+    }
+  }, [clientDevice])
+
+  useEffect(() => {
+    if (sideNavExpanded) {
+      subRoot.current.className = "Subroot Subroot--Expanded";
     } else {
       subRoot.current.className = "Subroot";
     }
-  }, [sideNavExpanded, clientDevice])
+  }, [sideNavExpanded])
 
 
   return (

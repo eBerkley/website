@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 // parent element AllArticles renders outlet
-export default function ArticlesSection(props) {
+export default function ArticlesList(props) {
   const setClassName = ({ isActive }) => {
     if (isActive) {
       return "SideNav__ArticleName SideNav__ArticleName--isActive";
@@ -11,7 +11,7 @@ export default function ArticlesSection(props) {
   };
 
   return (
-    <nav className="SideNav">
+    <>
       <h3>Articles</h3>
       {props.articles.map((el) => (
         <NavLink
@@ -22,6 +22,6 @@ export default function ArticlesSection(props) {
           {el.title}
         </NavLink>
       ))}
-    </nav>
+    </>
   );
 }

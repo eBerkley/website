@@ -1,0 +1,24 @@
+.SideNavCollapser {
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: var(--primary);
+  transition: width var(--transition-timing);
+  position: fixed;
+  overflow-x: hidden;
+  border-right: 1px solid var(--tertiary);
+  width: 0;
+}
+
+.SideNavCollapser--Expanded {
+  width: var(--mobileViewSideNavWidth);
+}
+
+
+.SideNavCollapser__Collapser {
+  width: var(--mobileViewSideNavWidth);
+  display: flex;
+  justify-content: flex-end;
+}
+
+

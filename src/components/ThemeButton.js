@@ -42,7 +42,7 @@ export default function ThemeButton() {
     }
   };
 
-  const onUnCollapse = () => {
+  const onExpand = () => {
     if (collapsed) {
       setCollapsed(false);
       window.addEventListener("mousedown", listener);
@@ -54,7 +54,7 @@ export default function ThemeButton() {
 
   return (
     <div ref={collapsable} className="NavBar__ThemeSelector">
-      <button className="NavBar__ThemeButton" onClick={onUnCollapse}>
+      <button className="NavBar__ThemeButton" onClick={onExpand}>
         Set Theme
       </button>
       <div className={collapsedClassName}>

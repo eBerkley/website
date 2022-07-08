@@ -1,11 +1,11 @@
 import { useParams, Navigate } from "react-router-dom";
 import ArticleMain from "../components/ArticleMain";
-import HeadersAside from "../components/HeadersAside";
+import SectionsInArticle from "../components/SectionsInArticle";
 import fakeArticles from "../utils/fakeArticles";
-import ArticlesSection from "../components/ArticlesSection";
+import ArticlesList from "../components/ArticlesList";
 import useResponse from "../utils/useResponsiveView";
 
-// tells main and aside components what article to display
+// orders components and tells them what to render
 export default function Article() {
   const { articleName } = useParams();
   const article = fakeArticles.find(({ title }) => title === articleName);
@@ -13,53 +13,62 @@ export default function Article() {
 
   const getCollapsed = () => {
     if (sideNavExpanded) {
-      return "CollapsableSideNav CollapsableSideNav--Expanded";
+      return "SideNavCollapser SideNavCollapser--Expanded";
     }
-    return "CollapsableSideNav CollapsableSideNav--Collapsed";
+    return "SideNavCollapser SideNavCollapser--Collapsed";
   }
 
   if (!articleName) {
     return <Navigate to="./fakeArticle1" />;
   }
 
-  if (clientDevice === "monitor") {
-    return (
-      <>
-        <ArticleMain article={article} />
-        <nav className="SideNavContainer">
-          <HeadersAside article={article.content} />
-        </nav>
-      </>
-    );
-  }
 
-  if (clientDevice === "tablet") {
-    return (
-      <>
-        <div className="SideNavContainer">
-          <HeadersAside article={article.content} />
-          <ArticlesSection articles={fakeArticles} />
+
+  switch (clientDevice) {
+    case "monitor":
+      return (
+        <div className="BelowNav">
+          <nav className="SideNav">
+            <ArticlesList articles={fakeArticles} />
+          </nav>
+
+          <ArticleMain article={article} />
+
+          <nav className="SideNav">
+            <SectionsInArticle article={article.content} />
+          </nav>
         </div>
-        <ArticleMain article={article} />
-      </>
-    );
-  }
+      );
 
-  if (clientDevice === "mobile") {
-    return (
-      <>
+    case "tablet":
+      return (
+        <div className="BelowNav">
+
+          <nav className="SideNav">
+            <SectionsInArticle article={article.content} />
+            <ArticlesList articles={fakeArticles} />
+          </nav>
+
+          <ArticleMain article={article} />
+        </div>
+      );
+    
+
+    default: //case "mobile"
+      return (
+      <div className="BelowNav">
         <div className={getCollapsed()}>
-          <div className="CollapsableSideNav__Collapser">
+          <div className="SideNavCollapser__Collapser" >
             <span>Press To Collapse &rarr;</span>
             <button onClick={collapse}>&times;</button>
           </div>
-          <div className="SideNavContainer">
-            <HeadersAside article={article.content} />
-            <ArticlesSection articles={fakeArticles} />
-          </div>
+          <nav className="SideNav">
+            <SectionsInArticle article={article.content} />
+            <ArticlesList articles={fakeArticles} />
+          </nav>
         </div>
         <ArticleMain article={article} />
-      </>
-    );
+      </div>
+      )
   }
 }
