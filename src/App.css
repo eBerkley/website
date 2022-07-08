@@ -1,8 +1,9 @@
+@import "./styles/Body.css";
 @import "./styles/NavBar.css";
-@import "./styles/SideNavCollapser.css";
 @import "./styles/SideNav.css";
 @import "./styles/Main.css";
-@import "./styles/Body.css";
+@import "./styles/SideNavCollapser.css";
+
 
 :root {
   /* colors */
@@ -52,46 +53,51 @@ html {
   }
 }
 
-@media screen and (max-width: 1800px) {
+@media screen and (min-width: 1400px) and (max-width: 1800px) {
   :root {
     --hBodyPadding: var(--small);
-  }
-}
-
-@media screen and (max-width: 1400px) {
-  :root {
-    --hBodyPadding: var(--xSmall);
-    --hMainPadding: var(--xSmall);
   }
 }
 
 /* Tablet View */
-@media screen and (max-width: 1200px) {
+
+@media screen and (max-width: 1400px) {
   :root {
-    --hBodyPadding: var(--small);
-    --hSideNavPadding: var(--small);
     --large-font: 2.5rem;
     --medium-font: 2rem;
     --small-font: 1.3rem;
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
   :root {
+    --hBodyPadding: var(--small);
+    --hMainPadding: var(--xSmall);
+    --hSideNavPadding: var(--small);
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+  :root {
+    --hMainPadding: var(--xSmall);
     --hBodyPadding: var(--xSmall);
     --hSideNavPadding: var(--xSmall);
   }
 }
 
 /* Mobile View */
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 400px) and (max-width: 800px) {
   :root {
+    --hMainPadding: var(--xSmall);
+    --hBodyPadding: var(--xSmall);
     --hSideNavPadding: var(--small);
   }
 }
 
 @media screen and (max-width: 400px) {
   :root {
+    --hMainPadding: var(--xSmall);
+    --hBodyPadding: var(--xSmall);
     --mobileViewSideNavWidth: 80vw;
   }
 }

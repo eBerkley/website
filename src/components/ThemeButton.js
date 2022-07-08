@@ -2,9 +2,12 @@ import { useEffect, useState, useMemo, useRef } from "react";
 
 // colors, appearence, etc subject to change
 export default function ThemeButton() {
-  const [theme, setTheme] = useState("Light");
+  const storedTheme = localStorage.getItem("theme") || "Light" 
+
+  const [theme, setTheme] = useState(storedTheme);
   const [collapsed, setCollapsed] = useState(true);
   const collapsable = useRef();
+
   const collapsedClassName = useMemo(() => {
     if (collapsed) {
       return "NavBar__Collapsable NavBar__Collapsable--Collapsed";
@@ -24,25 +27,29 @@ export default function ThemeButton() {
   useEffect(() => {
     const r = document.querySelector(":root");
     if (theme === "Dark") {
+      localStorage.setItem("theme", "Dark")
       r.style.setProperty("--primary", "hsl(0, 0%, 10%)");
       r.style.setProperty("--secondary", "hsl(0, 0%, 100%)");
     } else if (theme === "Light") {
+      localStorage.setItem("theme", "Light");
       r.style.setProperty("--primary", "hsl(0, 0%, 100%)");
       r.style.setProperty("--secondary", "hsl(0, 0%, 0%)");
     } else {
+      localStorage.setItem("theme", "High-Contrast");
       r.style.setProperty("--primary", "hsl(0, 0%, 0%)");
       r.style.setProperty("--secondary", "hsl(0, 0%, 100%)");
     }
   }, [theme]);
 
-  const listener = (e) => {
-    if (!collapsable.current.contains(e.target)) {
-      setCollapsed(true);
-      window.removeEventListener("mousedown", listener);
-    }
-  };
-
   const onExpand = () => {
+
+    const listener = (e) => {
+      if (!collapsable.current.contains(e.target)) {
+        setCollapsed(true);
+        window.removeEventListener("mousedown", listener);
+      }
+    };
+
     if (collapsed) {
       setCollapsed(false);
       window.addEventListener("mousedown", listener);

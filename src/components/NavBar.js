@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 import ThemeButton from "./ThemeButton";
-import useResponse from "../utils/useResponsiveView";
+
 // parent element App renders outlet
-export default function NavBar() {
-  const { clientDevice, expand } = useResponse()
+export default function NavBar(props) {
+
   const setClassName = ({ isActive }) => {
     if (isActive) {
       return "NavBar__a NavBar__a--isActive";
@@ -11,6 +11,7 @@ export default function NavBar() {
       return "NavBar__a";
     }
   };
+
   return (
     <nav className="NavBar">
       <NavLink className={setClassName} to="/">
@@ -20,7 +21,9 @@ export default function NavBar() {
         Articles
       </NavLink>
       <ThemeButton />
-      {clientDevice === "mobile" && <button onClick={expand}>See More...</button>}
+      {props.device === "mobile" && (
+        <button onClick={props.expand}>See More...</button>
+      )}
     </nav>
   );
 }

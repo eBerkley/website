@@ -15,7 +15,7 @@ export default function useWindowWidth() {
     }
 
   }, [])
-  if (windowWidth > 1200) return "monitor"
+  if (windowWidth > 1400) return "monitor"
   if (windowWidth > 800) return "tablet"
   return "mobile"
 }
