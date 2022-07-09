@@ -7,7 +7,9 @@
   background-color: var(--primary);
   transition: background-color var(--transition-timing);
   min-width: max-content;
-
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
 }
 
 .NavBar__a {
@@ -87,4 +89,78 @@
 
 .NavBar__SideNavExpander--Hidden {
   display: none;
+}
+
+
+
+.NavBar__ResponsiveContent {
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+.NavBar__ResponsiveContent--Hidden {
+  display: none;
+}
+
+.NavBar__ResponsiveContent > *  {
+  margin-left: var(--xSmall)
+}
+
+.GithubLink {
+  display: inline-block;
+  --initialSize: 40px;
+  --svgSize: 35px;
+  --max-width: 300px;
+  --inner-font: 1.75rem;
+  width: var(--initialSize);
+  height: var(--initialSize);
+  border: 2px solid var(--secondary);
+  border-radius: var(--medium);
+  overflow: hidden;
+  transition: width var(--transition-timing);
+  background-color: var(--secondary);
+  color: var(--primary);
+  text-decoration: underline 1px;
+}
+
+@media screen and (max-width: 600px) {
+  .GithubLink {
+    --max-width: 250px;
+    --inner-font: 1.5rem;
+  }
+} 
+
+.GithubLink:hover {
+  width: var(--max-width);
+}
+
+
+@media screen and (any-hover: none) {
+  .GithubLink {
+    width: var(--max-width);
+  }
+}
+
+.GithubBackground {
+  display: flex;
+}
+
+.GithubSVGText {
+  padding-left: 10px;
+  align-self: center;
+  min-width:max-content;
+  font-size: var(--inner-font);
+}
+
+#GithubSVG {
+  min-width: var(--svgSize);
+  height: var(--svgSize);
+
+  /* needed due to misalignment in svg itself */
+  padding-top: 5px;
+  margin-left: 2px;
+  transition: fill var(--transition-timing);
+  fill: var(--primary);
+  
 }

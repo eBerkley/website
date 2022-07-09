@@ -24,7 +24,7 @@
   --hBodyPadding: var(--large);
   --hMainPadding: 0;
   --hSideNavPadding: var(--hBodyPadding);
-  --mobileViewSideNavWidth: 60vw;
+  --mobileViewSideNavWidth: 70vw;
 
   /* font sizes */
   --large-font: 3rem;
@@ -84,7 +84,7 @@ html {
 }
 
 /* Mobile View */
-@media screen and (min-width: 400px) and (max-width: 800px) {
+@media screen and (min-width: 500px) and (max-width: 800px) {
   :root {
     --hMainPadding: var(--xSmall);
     --hBodyPadding: var(--xSmall);
@@ -92,7 +92,7 @@ html {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   :root {
     --hMainPadding: var(--xSmall);
     --hBodyPadding: var(--xSmall);

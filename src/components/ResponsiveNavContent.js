@@ -1,20 +1,12 @@
 import ThemeButton from "./ThemeButton";
-
+import GithubButton from "./GithubButton";
+// styles will be contained in navbar.css
 const ResponsiveNavContent = (props) => {
-  if (props.display) {
-    return (
-      <>
-        <ThemeButton />
-        <button>this will display other stuff in the future</button>
-      </>
-    );
-  }
-
   return (
-    <div className="ResponsiveNavContent--Hidden">
+    <>
       <ThemeButton />
-      <button>this will display other stuff in the future</button>
-    </div>
+      <GithubButton />
+    </>
   );
 };
 

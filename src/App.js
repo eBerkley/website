@@ -47,7 +47,6 @@ export default function App() {
       <NavBar
         setSideNavExpanded={setSideNavExpanded}
         sideNavExpanded={sideNavExpanded}
-        // other={ResponsiveNavContent}
         mobile={device === "mobile"}
       />
       <div ref={ref} className={getCollapsed()}>
