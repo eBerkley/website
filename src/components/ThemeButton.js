@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo, useRef } from "react";
 
 // colors, appearence, etc subject to change
 export default function ThemeButton() {
-  const storedTheme = localStorage.getItem("theme") || "Light" 
+  const storedTheme = localStorage.getItem("theme") || "Light";
 
   const [theme, setTheme] = useState(storedTheme);
   const [collapsed, setCollapsed] = useState(true);
@@ -26,23 +26,20 @@ export default function ThemeButton() {
 
   useEffect(() => {
     const r = document.querySelector(":root");
+    localStorage.setItem("theme", theme);
     if (theme === "Dark") {
-      localStorage.setItem("theme", "Dark")
       r.style.setProperty("--primary", "hsl(0, 0%, 10%)");
       r.style.setProperty("--secondary", "hsl(0, 0%, 100%)");
     } else if (theme === "Light") {
-      localStorage.setItem("theme", "Light");
       r.style.setProperty("--primary", "hsl(0, 0%, 100%)");
       r.style.setProperty("--secondary", "hsl(0, 0%, 0%)");
     } else {
-      localStorage.setItem("theme", "High-Contrast");
       r.style.setProperty("--primary", "hsl(0, 0%, 0%)");
       r.style.setProperty("--secondary", "hsl(0, 0%, 100%)");
     }
   }, [theme]);
 
   const onExpand = () => {
-
     const listener = (e) => {
       if (!collapsable.current.contains(e.target)) {
         setCollapsed(true);

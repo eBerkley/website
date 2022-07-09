@@ -12,6 +12,10 @@ button:hover {
   position: fixed;
 }
 
+.ResponsiveNavContent--Hidden {
+  display: none;
+}
+
 .Subroot {
   transition: margin-left var(--transition-timing);
   height: 100vh;

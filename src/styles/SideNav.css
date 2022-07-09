@@ -1,4 +1,3 @@
-
 .SideNav {
   padding: 0 var(--hSideNavPadding);
   position: sticky;
@@ -32,4 +31,3 @@
 .SideNav__ArticleName--isActive {
   text-decoration: underline;
 }
-

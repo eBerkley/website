@@ -4,7 +4,6 @@
 @import "./styles/Main.css";
 @import "./styles/SideNavCollapser.css";
 
-
 :root {
   /* colors */
   --primary: hsl(0, 0%, 100%);
@@ -31,7 +30,6 @@
   --large-font: 3rem;
   --medium-font: 2rem;
   --small-font: 1.5rem
-
 }
 
 html {
@@ -101,4 +99,3 @@ html {
     --mobileViewSideNavWidth: 80vw;
   }
 }
-
