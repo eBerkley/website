@@ -48,7 +48,7 @@ export default function App() {
 
     if (sideNavExpanded) {
       ref.current.focus(); // allows esc to close sidebar and snaps tab navigation to sidebar
-      if (device === "mobile") {
+      if (device == "mobile") {
         document.addEventListener("keydown", escListener);
         document.addEventListener("click", clickListener);
       } else {
@@ -60,6 +60,7 @@ export default function App() {
   }, [device, sideNavExpanded]);
 
   const getCollapsed = () => {
+    if (device !== "mobile") return "SideNavCollapser SideNavCollapser--Hidden";
     if (sideNavExpanded) {
       return "SideNavCollapser SideNavCollapser--Expanded";
     }
@@ -78,6 +79,7 @@ export default function App() {
     <AppContext.Provider value={context}>
       <div
         className={sideNavExpanded ? "Subroot Subroot--Expanded" : "Subroot"}
+        tabIndex="-1"
       >
         <NavBar
           setSideNavExpanded={setSideNavExpanded}

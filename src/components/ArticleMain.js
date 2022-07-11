@@ -1,6 +1,6 @@
 export default function ArticleMain({ article }) {
   return (
-    <main>
+    <main id="main">
       <h1 className="Main__Title">{article.title}</h1>
       {article.content.map((el, i) => (
         <section aria-labelledby={el.section} key={el.section}>

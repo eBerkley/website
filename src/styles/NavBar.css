@@ -11,7 +11,26 @@
   align-items: center;
 }
 
-.NavBar__a {
+.SkipLink {
+  transition-property: transform color border-color;
+  transition-duration: var(--transition-timing);
+  border: 1px solid var(--secondary);
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px;
+  position: absolute;
+  left: 50%;
+  text-decoration: none;
+  color: var(--secondary);
+  transform: translateY(-200%);
+  z-index: 1000;
+}
+
+.SkipLink:focus {
+  transform: translateY(0%);
+}
+
+.NavBar__A {
   transition-property: color border-color;
   transition-duration: var(--transition-timing);
   border: 1px solid var(--secondary);
@@ -22,12 +41,12 @@
   color: var(--secondary);
 }
 
-.NavBar__a:not(.NavBar__a--isActive):hover {
+.NavBar__A:not(.NavBar__A--isActive):hover {
   color: var(--active-link);
   transition: 0s;
 }
 
-.NavBar__a--isActive {
+.NavBar__A--isActive {
   background-color: var(--secondary);
   color: var(--primary);
 }
@@ -160,7 +179,8 @@
   }
 }
 
-.GithubLink:hover {
+.GithubLink:hover,
+.GithubLink:focus {
   width: var(--max-width);
 }
 

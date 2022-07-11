@@ -3,15 +3,18 @@
   left: 0;
   height: 100vh;
   background-color: var(--primary);
-  width: 0;
   transition: all var(--transition-timing);
+
   position: fixed;
   overflow-x: hidden;
   border-right: 1px solid var(--tertiary);
-  display: none;
+  width: 0;
 }
 
 .SideNavCollapser--Expanded {
   width: var(--mobileViewSideNavWidth);
-  display: block;
+}
+
+.SideNavCollapser--Hidden {
+  display: none;
 }
