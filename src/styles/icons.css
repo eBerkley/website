@@ -1,0 +1,134 @@
+.LightIcon__Class1 {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  stroke-width: 4px;
+}
+
+/* ------------------ DARK ------------------- */
+
+.DarkIcon__Class1 {
+  fill: hsl(0, 0%, 10%)
+}
+
+
+.DarkIcon__Class2 {
+  fill: gray;
+}
+
+.DarkIcon__Class14,
+.DarkIcon__Class2 {
+  stroke: #000;
+  stroke-miterlimit: 10;
+}
+
+.DarkIcon__Class3 {
+  fill: #5c5c5c;
+}
+
+.DarkIcon__Class4 {
+  fill: #636161;
+}
+
+.DarkIcon__Class5 {
+  fill: #707070;
+}
+
+.DarkIcon__Class6 {
+  fill: #838181;
+}
+
+.DarkIcon__Class7 {
+  fill: #949292;
+}
+
+.DarkIcon__Class8 {
+  fill: #a1a0a0;
+}
+
+.DarkIcon__Class9 {
+  fill: #b4b3b3;
+}
+
+.DarkIcon__Class10 {
+  fill: #c4c3c3;
+}
+
+.DarkIcon__Class11 {
+  fill: #d1cdcd;
+}
+
+.DarkIcon__Class12 {
+  fill: #e4e3e3;
+}
+
+.DarkIcon__Class13 {
+  fill: #fff;
+}
+
+.DarkIcon__Class14 {
+  fill: none;
+}
+
+/* --------------- HIGH CONTRAST ----------------------- */
+
+.HighContrast__Bg {
+  fill: var(--primary);
+}
+
+.HighContrast__Class1 {
+  fill: #171717;
+}
+
+.HighContrast__Class2 {
+  fill: #2e2e2e;
+}
+
+.HighContrast__Class3 {
+  fill: #464646;
+}
+
+.HighContrast__Class4 {
+  fill: #5d5d5d;
+}
+
+.HighContrast__Class5 {
+  fill: #747474;
+}
+
+.HighContrast__Class6 {
+  fill: #8b8b8b;
+}
+
+.HighContrast__Class7 {
+  fill: #a2a2a2;
+}
+
+.HighContrast__Class8 {
+  fill: #b9b9b9;
+}
+
+.HighContrast__Class9 {
+  fill: #d1d1d1;
+}
+
+.HighContrast__Class10 {
+  fill: #e8e8e8;
+}
+
+.HighContrast__Class11,
+.HighContrast__Class12 {
+  fill: #fff;
+}
+
+.HighContrast__Class12,
+.HighContrast__Class13,
+.HighContrast__Class14 {
+  stroke: #000;
+  stroke-miterlimit: 10;
+}
+
+.HighContrast__Class14 {
+  fill: none;
+}

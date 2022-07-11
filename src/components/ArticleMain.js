@@ -1,4 +1,3 @@
-// main
 export default function ArticleMain({ article }) {
   return (
     <main>
@@ -6,9 +5,13 @@ export default function ArticleMain({ article }) {
       {article.content.map((el, i) => (
         <section aria-labelledby={el.section} key={el.section}>
           <h2 className="Main__Section" id={el.section}>
-            {el.section}
+            <a href={`#${el.section}`} className="Main__SectionA">
+              {el.section}
+            </a>
           </h2>
-          <p className="Main__P">{el.content}</p>
+          <div>
+            <p className="Main__P">{el.content}</p>
+          </div>
         </section>
       ))}
     </main>

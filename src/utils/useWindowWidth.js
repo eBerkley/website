@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 export default function useWindowWidth() {
-
   const getDevice = (width) => {
     if (width > 1400) return "monitor";
     if (width > 800) return "tablet";
@@ -23,8 +22,6 @@ export default function useWindowWidth() {
       window.removeEventListener("resize", onResize);
     };
   }, [device]);
-
-  
 
   return device;
 }

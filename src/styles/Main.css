@@ -11,6 +11,27 @@ main {
   font-size: var(--medium-font);
 }
 
+.Main__SectionA {
+  text-decoration: none;
+  color: var(--secondary);
+  transition: color var(--transition-timing)
+}
+
+.Main__SectionA:hover {
+  text-decoration: underline;
+}
+
+.Main__SectionA:hover::after {
+  box-sizing: border-box;
+  content: "#";
+  margin-left: 4px;
+  font-size: .8em;
+  line-height: 1;
+  display: inline-flex;
+  color: var(--tertiary);
+  /* text-decoration: none; */
+}
+
 .Main__P {
   font-size: var(--small-font);
 }

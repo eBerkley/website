@@ -26,16 +26,19 @@ export default function NavBar(props) {
           }}
           disabled={props.sideNavExpanded}
           className={`NavBar__SideNavExpander${
-            !props.mobile ? " NavBar__SideNavExpander--Hidden" : null
+            !props.mobile ? " NavBar__SideNavExpander--Hidden" : ""
           }`}
         >
           &#9776; See More...
         </button>
       </div>
-      <div className={`NavBar__ResponsiveContent${props.mobile? " NavBar__ResponsiveContent--Hidden" : ""}`}>
+      <div
+        className={`NavBar__ResponsiveContent${
+          props.mobile ? " NavBar__ResponsiveContent--Hidden" : ""
+        }`}
+      >
         <ResponsiveNavContent />
       </div>
-      
     </nav>
   );
 }

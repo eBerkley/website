@@ -8,16 +8,10 @@
   position: fixed;
   overflow-x: hidden;
   border-right: 1px solid var(--tertiary);
-  
+  display: none;
 }
 
 .SideNavCollapser--Expanded {
   width: var(--mobileViewSideNavWidth);
-}
-
-
-.SideNavCollapser__Collapser {
-  width: var(--mobileViewSideNavWidth);
-  display: flex;
-  justify-content: flex-end;
+  display: block;
 }

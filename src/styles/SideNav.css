@@ -3,17 +3,38 @@
   position: sticky;
   top: 9rem;
   height: fit-content;
-  width: max-content;
+  width: 12rem;
   display: flex;
   flex-direction: column;
 }
 
+.SideNav .SideNav__Section:not([aria-current]):hover,
+.SideNav__ArticleName:not(.SideNav__ArticleName--isActive):hover {
+  transition: color 0s;
+  color: var(--active-link);
+}
+
 .SideNav__Section {
   padding: 5px 0 5px 15px;
-  border-left: 2px solid var(--tertiary);
+  border-left: 2px solid purple;
+  color: var(--tertiary);
+  font-style: italic;
+  text-decoration: none;
+}
+
+.SideNav__Section[aria-current] {
+  font-style: normal;
+  font-weight: bold;
+  border-color: blue;
   color: var(--secondary);
   transition: color var(--transition-timing);
-  text-decoration: none;
+}
+
+.SideNav__Section[aria-current]~.SideNav__Section {
+  font-style: normal;
+  border-color: var(--tertiary);
+  color: var(--secondary);
+  transition: color var(--transition-timing);
 }
 
 .SideNav__ArticleName {

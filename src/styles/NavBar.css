@@ -8,18 +8,23 @@
   transition: background-color var(--transition-timing);
   min-width: max-content;
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
 }
 
 .NavBar__a {
+  transition-property: color border-color;
+  transition-duration: var(--transition-timing);
   border: 1px solid var(--secondary);
   border-radius: 15px;
   padding: 10px;
   margin: 5px;
   text-decoration: none;
   color: var(--secondary);
-  background-color: var(--primary);
+}
+
+.NavBar__a:not(.NavBar__a--isActive):hover {
+  color: var(--active-link);
+  transition: 0s;
 }
 
 .NavBar__a--isActive {
@@ -27,71 +32,94 @@
   color: var(--primary);
 }
 
-.NavBar__ThemeSelector {
-  display: inline-block;
-}
 
 .NavBar__ThemeButton {
-  font-weight: bold;
-  border-style: solid;
-  border-radius: 5px;
-  border-width: 1px;
-  border-color: var(--secondary);
-  flex: 1;
+  transition: all var(--transition-timing);
+  border: 2px solid var(--secondary);
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none;
+  color: var(--secondary);
+  overflow: hidden;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  background-color: #0000;
 }
 
-.NavBar__Collapsable {
+.NavBar__ThemeIconContainer {
+  width: 50px;
+  height: 50px;
   display: flex;
   flex-direction: column;
-  overflow-y: hidden;
-  max-height: fit-content;
-  transition: all var(--transition-timing) ease-in-out;
-  position: absolute;
 }
 
-.NavBar__Collapsable--Collapsed {
-  height: 0;
+.NavBar__ThemeIcon {
+  min-width: 35px;
+  min-height: 35px;
+  padding: 10px 0 5px;
 }
 
-.NavBar__Collapsable--Uncollapsed {
-  height: 5rem;
+.NavBar__ThemeIcon--Current,
+.NavBar__ThemeIcon--Previous {
+  transition: transform var(--transition-timing);
 }
 
+.LightIcon.NavBar__ThemeIcon--Current {
+  transform: translateY(0);
+}
 
-.NavBar__ThemeOption {
+.DarkIcon.NavBar__ThemeIcon--Next {
+  transform: translateY(0px);
+}
+
+.HighContrastIcon.NavBar__ThemeIcon--Previous {
+  transform: translateY(-150px);
+}
+
+/*  */
+.LightIcon.NavBar__ThemeIcon--Previous {
+  transform: translateY(-50px);
+}
+
+.DarkIcon.NavBar__ThemeIcon--Current {
+  transform: translateY(-50px);
+}
+
+.HighContrastIcon.NavBar__ThemeIcon--Next {
+  transform: translateY(-50px);
+}
+
+/*  */
+.LightIcon.NavBar__ThemeIcon--Next {
+  transform: translateY(50px);
+}
+
+.DarkIcon.NavBar__ThemeIcon--Previous {
+  transform: translateY(-100px);
+}
+
+.HighContrastIcon.NavBar__ThemeIcon--Current {
+  transform: translateY(-100px);
+}
+
+.NavBar__SideNavExpander {
+  transition: color border-color var(--transition-timing);
+  border: 1px solid var(--secondary);
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px;
   font-weight: bold;
-  border-style: solid;
-  border-radius: 5px;
-  border-width: 1px;
-}
-
-.NavBar__ThemeOption--isActive {
-  font-style: italic;
-}
-
-.NavBar__Light {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  border-color: rgb(0, 0, 0);
-}
-
-.NavBar__Dark {
-  color: rgb(255, 255, 255);
-  background-color: rgb(30, 30, 30);
-  border-color: rgb(255, 255, 255);
-}
-
-.NavBar__High-Contrast {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
-  border-color: rgb(255, 255, 255);
+  color: var(--secondary);
+  background-color: #0000;
 }
 
 .NavBar__SideNavExpander--Hidden {
   display: none;
 }
-
-
 
 .NavBar__ResponsiveContent {
   display: flex;
@@ -103,7 +131,7 @@
   display: none;
 }
 
-.NavBar__ResponsiveContent > *  {
+.NavBar__ResponsiveContent>* {
   margin-left: var(--xSmall)
 }
 
@@ -118,7 +146,8 @@
   border: 2px solid var(--secondary);
   border-radius: var(--medium);
   overflow: hidden;
-  transition: width var(--transition-timing);
+  transition-property: width background-color;
+  transition-duration: var(--transition-timing);
   background-color: var(--secondary);
   color: var(--primary);
   text-decoration: underline 1px;
@@ -129,14 +158,13 @@
     --max-width: 250px;
     --inner-font: 1.5rem;
   }
-} 
+}
 
 .GithubLink:hover {
   width: var(--max-width);
 }
 
-
-@media screen and (any-hover: none) {
+@media screen and (hover: none) {
   .GithubLink {
     width: var(--max-width);
   }
@@ -149,7 +177,7 @@
 .GithubSVGText {
   padding-left: 10px;
   align-self: center;
-  min-width:max-content;
+  min-width: max-content;
   font-size: var(--inner-font);
 }
 
@@ -160,7 +188,8 @@
   /* needed due to misalignment in svg itself */
   padding-top: 5px;
   margin-left: 2px;
+
   transition: fill var(--transition-timing);
   fill: var(--primary);
-  
+
 }

@@ -3,12 +3,14 @@
 @import "./styles/SideNav.css";
 @import "./styles/Main.css";
 @import "./styles/SideNavCollapser.css";
+@import "./styles/icons.css";
 
 :root {
   /* colors */
   --primary: hsl(0, 0%, 100%);
   --secondary: hsl(0, 0%, 0%);
   --tertiary: hsl(0, 0%, 40%);
+  --active-link: rgb(104, 219, 248);
 
   /* distances */
   --xSmall: 1.2rem;
