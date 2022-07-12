@@ -7,12 +7,6 @@
 @import "./styles/Footer.css";
 
 :root {
-  /* colors */
-  --primary: hsl(0, 0%, 100%);
-  --secondary: hsl(0, 0%, 0%);
-  --tertiary: hsl(0, 0%, 40%);
-  --active-link: rgb(104, 219, 248);
-
   /* distances */
   --xSmall: 1.2rem;
   --small: 5rem;
@@ -40,6 +34,37 @@ html {
   color: var(--secondary);
   transition: color var(--transition-timing);
 }
+
+html.Light {
+  --primary: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 0%);
+  --tertiary: hsl(0, 0%, 40%);
+  --active: rgb(2, 169, 211);
+  --muted: hsl(0, 0%, 50%);
+  --muted-border: rgb(255, 43, 255);
+  --active-border: rgb(100, 219, 255);
+}
+
+html.Dark {
+  --primary: hsl(0, 0%, 10%);
+  --secondary: hsl(0, 0%, 100%);
+  --tertiary: hsl(0, 0%, 40%);
+  --active: rgb(104, 219, 248);
+  --muted: hsl(0, 0%, 40%);
+  --muted-border: rgb(128, 0, 128);
+  --active-border: rgb(0, 0, 255);
+}
+
+html.HighContrast {
+  --primary: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 100%);
+  --tertiary: hsl(0, 0%, 40%);
+  --active: rgb(104, 219, 248);
+  --muted: hsl(0, 0%, 30%);
+  --muted-border: rgb(128, 0, 128);
+  --active-border: rgb(0, 0, 255);
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   :root {

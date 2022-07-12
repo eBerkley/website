@@ -7,6 +7,9 @@ const AppContext = createContext({
   setTheme: () => {},
   section: "",
   articleList: [],
+  fetching: false,
+  reqFetch: () => {},
+  currentArticle: {},
 });
 
 export { AppContext };

@@ -1,5 +1,6 @@
 {
   "home": {
+    "name": "home",
     "title": "Welcome to my Website!",
     "summary": [
       "This website was designed to showcase my knowledge and capabilities when it comes to web development. The content found inside is designed to serve as the code documentation itself, which allows users to both read about the design decisions made and see the outcome in real time."
@@ -25,6 +26,7 @@
     ]
   },
   "index": {
+    "name": "index",
     "title": "Articles Index",
     "summary": [
       "This page is a placeholder for where normal articles would normally appear."
@@ -38,6 +40,7 @@
     ]
   },
   "accessibility": {
+    "name": "accessibility",
     "title": "Accessibility",
     "summary": [
       "As said in the home page, one of my main goals was to design a clean and dynamic user interface without sacrificing accessibility. To do so, I believed the best way was to see what grievances people in need of accessibility frequently had with websites. These grievances and my solutions to fixing them are listed below."
@@ -65,16 +68,17 @@
         "section": "visibility",
         "title": "Visibility",
         "content": [
-          "Although I already touched on screen readers a bit earlier, I thought I should also mention that the consistently high contrast text helps to ensure that people with reduced visibility should have an easier time reading the text. Additionally, there are no places with text that should be small enough to strain the eye in any way.",
+          "Although I already touched on screen readers a bit earlier, I thought I should also mention that the consistently high contrast text helps to ensure that people with reduced visibility should have an easier time reading the text. I have also ensured that any element that signals to the reader what they are currently reading, have already read, and have not read yet are styled differently in both font color and decoration, which ensures colorblind users can interpret the text in the same way fully sighted ones can. Additionally, none of the text is small enough to strain the eye in any way.",
           "Also, you may have noticed the frequent use of css transitions throughout the website. This can be a nice visual effect, but sometimes motion like this can cause discomfort. Therefore, I configured the css in a way that ensures if it detects that a user prefers reduced motion, it disables transitions entirely."
         ]
       }
     ]
   },
   "styling": {
+    "name": "styling",
     "title": "Styling",
     "summary": [
-      "Although with the limited color palette used there isn't as much to talk about as there would be otherwise, I thought I should briefly touch on the decisions made regarding the appearance of the website, although most decisions not mentioned in the accessibility article just come down to simplicity. "
+      "Although with the somewhat limited color palette used there is not as much to talk about as there otherwise would be, I still had several decisions to make regarding how color was used throughout the website."
     ],
     "content": [
       {
@@ -91,19 +95,20 @@
         "section": "content",
         "title": "Content",
         "content": [
-          "Simplicity definitely drove just about all the decisions made regarding the styling of the main content, although it's really due to me not wanting to add anything unnecessary. Outside of each section heading's link styling, all that is really styling them is just the theme colors used across the entire document. Black and white definitely is not the most creative, and there isn't anything going on besides text and headings, but I think that is fine considering the scope of the project."
+          "Simplicity definitely drove just about all the decisions made regarding the styling of the main content, although it's really due to me not wanting to add anything unnecessary. Outside of each section heading's link styling, the only thing about them that deviates from default html styling is the primary/secondary theme colors used across the entire document. Black and white definitely is not the most creative, and there isn't anything going on besides text and headings, but I believed changing that would be overcomplicating something that should be simple."
         ]
       },
       {
         "section": "themes",
         "title": "Themes",
         "content": [
-          "For the actual themes, I certainly could have used a more dynamic color palette, but felt it would not have added much due to there being very little dynamic content in general. The little theme icons are just svg files I made because I thought it would be fun, if you were curious."
+          "For the actual themes, although nearly every color used in the document is changed in some way, the colors stay similar with the exception of the foreground and background colors. The other theme colors correlate to the color used for focused links, the color used for links to content that have been viewed already, and the border colors for the section navigation. outside of these mostly static utility colors, there is just the foreground / background colors, and an unchanging color used for some borders."
         ]
       }
     ]
   },
   "script-decisions": {
+    "name": "script-decisions",
     "title": "Script Decisions",
     "summary": [
       "This is referring to decisions made regarding the actual code behind the website, as well as some functionality included. Again, all actual code can be found in the Github repository."
@@ -121,7 +126,8 @@
         "title": "CSS",
         "content": [
           "The CSS I wrote for the app frequently relies on variables, most notably when it comes to colors. This is due to a couple things, most notably them being somewhat self documenting, much easier to edit in the event that something small needs to be tweaked, and more dynamic.",
-          "The dynamism was especially appreciated when making the theme changer, as I only have to change two attributes for the entire document, instead of two attributes for most elements in the document. Additionally, the media queries used, such as most of the ones for the responsive design and the one that turns off transitions if requested, mostly change variables and are therefore only needed to be written once instead of once every time the value is used."
+          "The dynamism was especially appreciated when making the theme changer, as I only have to change one attribute for the entire document, which is the 'html' element's class name. This is instead of anywhere between 2 to 5 attributes for most elements in the document.",
+          "Additionally, the media queries used, such as most of the ones for the responsive design and the one that turns off transitions if requested, mostly change variables and are therefore only needed to be written once instead of once every time the value is used."
         ]
       },
       {
@@ -135,7 +141,10 @@
         "section": "api-usage",
         "title": "API Usage",
         "content": [
-          "Even though the website itself is a single page application, and all the content itself is just a json file, I still decided to use an API to send / receive the content in sections at a time. Although due to the scope of the project it certainly is not necessary, I still wanted to do it like that because I figured it would be necessary for larger projects, especially if they required a database of some sorts."
+          "Even though the website itself is a single page application, this website still relies on fetching data from a server to display content to the user. I believed it would be more realistic in that way, as typically websites similar to what this one is imitating would have no way of delivering every bit of content to the user upon them loading the page.",
+          "Instead, upon loading the page, a file is fetched that contains all the article's internal and external names. From there, each page visited results in that pages content being requested and sent. However, if they click a link that sends them to a page they are already on, the content should not be sent a second time, as it is already loaded internally.",
+          "Because of this, theoretically it would not be hard to implement a system in which the user could opt in to saving all the articles saved internally, which would allow the site to be used fully offline after loaded. However, I deemed this outside the scope of this project.",
+          "Finally, with the way the application reqests the name of each article upon being loaded, this means it would not be necessary to change the code of the app itself to add / change content. The only exceptions to this are the homepage and article index page, due to the application knowing their internal names."
         ]
       }
     ]

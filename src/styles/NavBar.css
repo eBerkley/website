@@ -9,6 +9,16 @@
   min-width: max-content;
   display: flex;
   align-items: center;
+  z-index: 3;
+}
+
+.NavBar__A:not(.NavBar__A--isActive):hover,
+.NavBar__A:not(.NavBar__A--isActive):focus,
+.NavBar__ThemeButton:hover,
+.NavBar__ThemeButton:active {
+  border-color: var(--active);
+  color: var(--active);
+  transition: border-color 0, color 0;
 }
 
 .SkipLink {
@@ -42,7 +52,7 @@
 }
 
 .NavBar__A:not(.NavBar__A--isActive):hover {
-  color: var(--active-link);
+  color: var(--active);
   transition: 0s;
 }
 
@@ -78,6 +88,11 @@
   font-weight: bold;
   color: var(--secondary);
   background-color: #0000;
+}
+
+.NavBar__SideNavExpander:disabled {
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 
 .NavBar__SideNavExpander--Hidden {

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 
 export default function useSideNavResponder(
   device,
@@ -6,22 +6,44 @@ export default function useSideNavResponder(
   ref,
   setSideNavExpanded
 ) {
-  useEffect(() => {
-    // collapses sidenav
-    const escListener = (e) => {
+  const escListener = useCallback(
+    (e) => {
       if (e.code === "Escape") {
         setSideNavExpanded(false);
       }
-    };
+    },
+    [setSideNavExpanded]
+  );
 
+  const clickListener = useCallback(
+    (e) => {
+      if (!ref.current.contains(e.target)) {
+        setSideNavExpanded(false);
+      }
+    },
+    [ref, setSideNavExpanded]
+  );
+
+  useEffect(() => {
+    // collapses sidenav
     if (sideNavExpanded) {
       ref.current.focus(); // allows esc to close sidebar and snaps tab navigation to sidebar
       if (device === "mobile") {
         document.addEventListener("keydown", escListener);
+        document.addEventListener("click", clickListener);
       } else {
         setSideNavExpanded(false);
-        document.removeEventListener("keydown", escListener);
       }
+    } else {
+      document.removeEventListener("keydown", escListener);
+      document.removeEventListener("click", clickListener);
     }
-  }, [device, sideNavExpanded, setSideNavExpanded, ref]);
+  }, [
+    device,
+    sideNavExpanded,
+    setSideNavExpanded,
+    ref,
+    escListener,
+    clickListener,
+  ]);
 }

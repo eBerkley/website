@@ -1,4 +1,3 @@
-// import {} from "react";
 import { Light, Dark, HighContrast } from "./ThemeIcons";
 import useView from "../utils/AppContext";
 // colors, appearence, etc subject to change

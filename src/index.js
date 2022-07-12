@@ -17,8 +17,8 @@ root.render(
             <Route index element={<AllArticles />} />
             <Route path=":articleName" element={<AllArticles />} />
           </Route>
-          <Route path="" element={<Home />} />
-          <Route path="*" element={<p>404</p>} />
+          <Route index element={<Home />} />
+          <Route path="*" element={<p>oops! we couldn't find that page.</p>} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -2,17 +2,16 @@
   padding: var(--small);
   border-top: 1px solid var(--tertiary);
   background-color: hsl(0, 0%, 20%);
-  color: var(--secondary);
+  color: #fff;
   /* position:fixed; */
   /* display: none; */
+  font-size: .9rem;
 }
 
 .Footer__TopDiv {
   padding: var(--xSmall) 0;
-  font-size: small;
 }
 
 .Footer__BottomDiv {
   border-top: 1px solid var(--tertiary);
-  font-size: small;
 }

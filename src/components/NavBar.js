@@ -23,10 +23,11 @@ export default function NavBar(props) {
           Articles
         </NavLink>
         <button
+          disabled={props.sideNavExpanded ? true : false}
           onClick={(e) => {
             props.setSideNavExpanded(true);
+            e.stopPropagation();
           }}
-          // disabled={props.sideNavExpanded}
           className={`NavBar__SideNavExpander${
             !props.mobile ? " NavBar__SideNavExpander--Hidden" : ""
           }`}

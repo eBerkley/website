@@ -1,5 +1,5 @@
 .SideNav {
-  padding: 0 var(--hSideNavPadding);
+  padding: 0 var(--hSideNavPadding) var(--small) var(--hSideNavPadding);
   position: sticky;
   top: 9rem;
   height: fit-content;
@@ -9,30 +9,32 @@
 }
 
 .SideNav .SideNav__Section:not([aria-current]):hover,
-.SideNav__ArticleName:not(.SideNav__ArticleName--isActive):hover {
+.SideNav .SideNav__ArticleName:not(.SideNav__ArticleName--isActive):hover {
   transition: color 0s;
-  color: var(--active-link);
+  color: var(--active);
 }
 
+/* only applies to sections above current one */
 .SideNav__Section {
   padding: 5px 0 5px 15px;
-  border-left: 2px solid purple;
-  color: var(--tertiary);
+  border-left: 2px solid var(--muted-border);
+  color: var(--muted);
   font-style: italic;
   text-decoration: none;
+  transition: border-color var(--transition-timing)
 }
 
 .SideNav__Section[aria-current] {
   font-style: normal;
   font-weight: bold;
-  border-color: blue;
+  border-color: var(--active-border);
   color: var(--secondary);
-  transition: color var(--transition-timing);
+  transition: color var(--transition-timing), border-color var(--transition-timing);
 }
 
 .SideNav__Section[aria-current]~.SideNav__Section {
   font-style: normal;
-  border-color: var(--tertiary);
+  border-color: var(--muted);
   color: var(--secondary);
   transition: color var(--transition-timing);
 }
@@ -45,12 +47,16 @@
   text-decoration: none;
 }
 
-.SideNav__ArticleName:hover {
-  text-shadow: 0px 0px 1px var(--secondary);
+.SideNav__ArticleName:not(.SideNav__ArticleName--isActive):visited {
+  color: var(--muted);
+}
+
+.SideNav__ArticleName:not(.SideNav__ArticleName--isActive):hover {
+  font-style: italic;
 }
 
 .SideNav__ArticleName--isActive {
-  text-decoration: underline;
+  font-weight: bold;
 }
 
 .SideNav__ResponsiveContent {
@@ -63,4 +69,8 @@
 
 .SideNav--Hidden {
   display: none;
+}
+
+.SideNav__FetchingContent {
+  padding-top: 10px;
 }

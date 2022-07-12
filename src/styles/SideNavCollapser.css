@@ -9,6 +9,7 @@
   overflow-x: hidden;
   border-right: 1px solid var(--tertiary);
   width: 0;
+  z-index: 4;
 }
 
 .SideNavCollapser--Expanded {

@@ -10,29 +10,64 @@ import useSideNavResponder from "./utils/useSideNavResponder";
 import apiFetch from "./utils/apiFetch";
 
 export default function App() {
-  const ref = useRef();
+  // responsive design, sideNav
   const device = useWindowWidth();
+  const collapsingDiv = useRef();
   const [sideNavExpanded, setSideNavExpanded] = useState(false);
   const [OutletSideNavData, setSideNavData] = useState([]);
+  const sentFirstReq = useRef(false);
+  // theme
   const storedTheme = localStorage.getItem("theme") || "Light";
   const [theme, setTheme] = useState(storedTheme);
-  const [articleList, setArticleList] = useState();
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    if (!loaded) {
-      apiFetch().then((response) => {
-        setArticleList(response);
-        setLoaded(true);
-      });
-    }
-  }, [loaded]);
+  // api
+  const [articleList, setArticleList] = useState(null);
+  const [fetching, reqFetch] = useState(null);
+  const [currentArticle, setCurrentArticle] = useState("");
 
   const section = useImprovedToc();
 
+  const context = {
+    setSideNavData,
+    device,
+    theme,
+    setTheme,
+    section,
+    articleList,
+    fetching,
+    reqFetch,
+    currentArticle,
+  };
+
+  useEffect(() => {
+    // init articleList
+    if (!sentFirstReq.current) {
+      sentFirstReq.current = true;
+      apiFetch().then((res) => {
+        setArticleList(res);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    // article fetcher
+    if (fetching && articleList) {
+      apiFetch(fetching).then((response) => {
+        reqFetch(null);
+        setCurrentArticle(response);
+      });
+    }
+
+    // waits until articleList is generated
+  }, [fetching, articleList]);
+
   useAutoThemeSetter(theme);
 
-  useSideNavResponder(device, sideNavExpanded, ref, setSideNavExpanded);
+  useSideNavResponder(
+    device,
+    sideNavExpanded,
+    collapsingDiv,
+    setSideNavExpanded
+  );
 
   const getCollapsed = () => {
     if (device !== "mobile") return "SideNavCollapser SideNavCollapser--Hidden";
@@ -42,18 +77,9 @@ export default function App() {
     return "SideNavCollapser";
   };
 
-  const context = {
-    setSideNavData,
-    device,
-    theme,
-    setTheme,
-    section,
-    articleList,
-  };
-
   return (
     <AppContext.Provider value={context}>
-      {loaded && (
+      {articleList && (
         <div
           className={sideNavExpanded ? "Subroot Subroot--Expanded" : "Subroot"}
         >
@@ -63,7 +89,7 @@ export default function App() {
             mobile={device === "mobile"}
           />
           <div
-            ref={ref}
+            ref={collapsingDiv}
             className={getCollapsed()}
             aria-hidden={device !== "mobile"}
             onFocus={() => setSideNavExpanded(true)}

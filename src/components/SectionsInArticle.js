@@ -5,6 +5,7 @@ export default function SectionsInArticle({ article }) {
   const { section } = useView();
 
   const current = (sectionName) => {
+    // if the top section contains the header with the id this links to, give it the attribute aria-current.
     if (section && sectionName === section.childNodes[0].id) return true;
   };
 
