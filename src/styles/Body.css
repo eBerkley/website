@@ -18,7 +18,7 @@ button:hover {
   width: 100vw;
   overflow-y: auto;
   scroll-behavior: var(--scroll-behavior);
-  scroll-padding-top: 7rem;
+  scroll-padding-top: 9rem;
 }
 
 .Subroot--Expanded {
@@ -27,4 +27,9 @@ button:hover {
 
 .BelowNav {
   display: flex;
+  min-height: 100%;
+}
+
+.BelowNav__HomeDiv {
+  padding: 0 var(--hBodyPadding);
 }

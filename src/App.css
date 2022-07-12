@@ -4,6 +4,7 @@
 @import "./styles/Main.css";
 @import "./styles/SideNavCollapser.css";
 @import "./styles/icons.css";
+@import "./styles/Footer.css";
 
 :root {
   /* colors */

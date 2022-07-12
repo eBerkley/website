@@ -6,10 +6,11 @@ const AppContext = createContext({
   theme: "",
   setTheme: () => {},
   section: "",
+  articleList: [],
 });
 
 export { AppContext };
 
-export default function useView() {
+export default function useAppContext() {
   return useContext(AppContext);
 }

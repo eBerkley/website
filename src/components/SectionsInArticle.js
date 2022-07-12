@@ -18,7 +18,7 @@ export default function SectionsInArticle({ article }) {
           key={el.section}
           href={`#${el.section}`}
         >
-          {el.section}
+          {el.title}
         </a>
       ))}
     </>

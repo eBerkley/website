@@ -15,7 +15,7 @@ export default function ArticlesList(props) {
       <h3>Articles</h3>
       {props.articles.map((el) => (
         <NavLink
-          to={`/articles/${el.title}`}
+          to={`/articles/${el.name}`}
           className={setClassName}
           key={el.title}
         >

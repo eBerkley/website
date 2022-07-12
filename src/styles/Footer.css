@@ -1,0 +1,18 @@
+.Footer {
+  padding: var(--small);
+  border-top: 1px solid var(--tertiary);
+  background-color: hsl(0, 0%, 20%);
+  color: var(--secondary);
+  /* position:fixed; */
+  /* display: none; */
+}
+
+.Footer__TopDiv {
+  padding: var(--xSmall) 0;
+  font-size: small;
+}
+
+.Footer__BottomDiv {
+  border-top: 1px solid var(--tertiary);
+  font-size: small;
+}

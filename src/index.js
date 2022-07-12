@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import App from "./App";
 import AllArticles from "./routes/AllArticles";
+import Home from "./routes/Home";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,7 +17,7 @@ root.render(
             <Route index element={<AllArticles />} />
             <Route path=":articleName" element={<AllArticles />} />
           </Route>
-          <Route path="" element={<p>Will display actual content soon</p>} />
+          <Route path="" element={<Home />} />
           <Route path="*" element={<p>404</p>} />
         </Route>
       </Routes>

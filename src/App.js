@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import useWindowWidth from "./utils/useWindowWidth";
 import ResponsiveNavContent from "./components/ResponsiveNavContent";
@@ -7,15 +7,26 @@ import { AppContext } from "./utils/AppContext";
 import useImprovedToc from "./utils/useImprovedToc";
 import useAutoThemeSetter from "./utils/useAutoThemeSetter";
 import useSideNavResponder from "./utils/useSideNavResponder";
+import apiFetch from "./utils/apiFetch";
 
 export default function App() {
   const ref = useRef();
   const device = useWindowWidth();
   const [sideNavExpanded, setSideNavExpanded] = useState(false);
   const [OutletSideNavData, setSideNavData] = useState([]);
-
   const storedTheme = localStorage.getItem("theme") || "Light";
   const [theme, setTheme] = useState(storedTheme);
+  const [articleList, setArticleList] = useState();
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!loaded) {
+      apiFetch().then((response) => {
+        setArticleList(response);
+        setLoaded(true);
+      });
+    }
+  }, [loaded]);
 
   const section = useImprovedToc();
 
@@ -35,37 +46,40 @@ export default function App() {
     setSideNavData,
     device,
     theme,
-    setTheme: setTheme,
+    setTheme,
     section,
+    articleList,
   };
 
   return (
     <AppContext.Provider value={context}>
-      <div
-        className={sideNavExpanded ? "Subroot Subroot--Expanded" : "Subroot"}
-      >
-        <NavBar
-          setSideNavExpanded={setSideNavExpanded}
-          sideNavExpanded={sideNavExpanded}
-          mobile={device === "mobile"}
-        />
+      {loaded && (
         <div
-          ref={ref}
-          className={getCollapsed()}
-          aria-hidden={device !== "mobile"}
-          onFocus={() => setSideNavExpanded(true)}
-          onBlur={() => setSideNavExpanded(false)}
+          className={sideNavExpanded ? "Subroot Subroot--Expanded" : "Subroot"}
         >
-          <nav className="SideNav">
-            <div className="SideNav__ResponsiveContent">
-              <ResponsiveNavContent />
-            </div>
-            {OutletSideNavData}
-          </nav>
-        </div>
+          <NavBar
+            setSideNavExpanded={setSideNavExpanded}
+            sideNavExpanded={sideNavExpanded}
+            mobile={device === "mobile"}
+          />
+          <div
+            ref={ref}
+            className={getCollapsed()}
+            aria-hidden={device !== "mobile"}
+            onFocus={() => setSideNavExpanded(true)}
+            onBlur={() => setSideNavExpanded(false)}
+          >
+            <nav className="SideNav">
+              <div className="SideNav__ResponsiveContent">
+                <ResponsiveNavContent />
+              </div>
+              {OutletSideNavData}
+            </nav>
+          </div>
 
-        <Outlet />
-      </div>
+          <Outlet />
+        </div>
+      )}
     </AppContext.Provider>
   );
 }
