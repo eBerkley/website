@@ -6,7 +6,7 @@ import "./App.css";
 import App from "./App";
 import AllArticles from "./routes/AllArticles";
 import Home from "./routes/Home";
-
+import FourOhFour from "./routes/FourOhFour";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -18,7 +18,7 @@ root.render(
             <Route path=":articleName" element={<AllArticles />} />
           </Route>
           <Route index element={<Home />} />
-          <Route path="*" element={<p>oops! we couldn't find that page.</p>} />
+          <Route path="*" element={<FourOhFour />} />
         </Route>
       </Routes>
     </BrowserRouter>

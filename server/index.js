@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 const { getResponse, getList } = require("./utils");
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
+
+app.use(express.static(path.join(__dirname, "../build")));
 
 app.get("/api", (req, res) => {
   const data = getList();
@@ -11,7 +14,15 @@ app.get("/api", (req, res) => {
 app.get("/api/:article", (req, res) => {
   const { article } = req.params;
   const data = getResponse(article);
-  res.send(data);
+  if (data) {
+    res.send(data);
+  } else {
+    res.send(`Sorry, we were unable to locate any articles named ${article}.`);
+  }
+});
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
 });
 
 app.listen(PORT, () => {

@@ -60,7 +60,7 @@
         "section": "keyboard-navigation",
         "title": "Keyboard Navigation",
         "content": [
-          "Keyboard navigation could be needed for multiple reasons, most notably due to reduced mobility or screen reader usage, so I wanted to ensure that keyboard navigation was as straightforward as possible. When tab is first pressed upon opening the page, a button is revealed that users can activate with the enter key to skip directly to the main content, allowing them to skip over the navigation links if they want.",
+          "Keyboard navigation could be needed for multiple reasons, most notably due to reduced mobility or screen reader usage, so I wanted to ensure that keyboard navigation was as straightforward as possible. If the website detects the user is navigating with the tab button, a button is revealed that users can activate with the enter key to skip directly to the main content, allowing them to skip over the navigation links if they want.",
           "Additionally, regarding the mobile view's side navbar, focusing the element with the keyboard will automatically open the navbar, and removing focus will close it. Furthermore, although the mobile side nav bar is always created, I have ensured that it won't interfere with any sort of keyboard navigation or screen reading while not using a mobile view, therefore preventing the content inside from being accessed a second time."
         ]
       },
