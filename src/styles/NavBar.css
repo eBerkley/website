@@ -69,62 +69,6 @@
   background-color: #0000;
 }
 
-.NavBar__ThemeIconContainer {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  flex-direction: column;
-}
-
-.NavBar__ThemeIcon {
-  min-width: 35px;
-  min-height: 35px;
-  padding: 10px 0 5px;
-}
-
-.NavBar__ThemeIcon--Current,
-.NavBar__ThemeIcon--Previous {
-  transition: transform var(--transition-timing);
-}
-
-.LightIcon.NavBar__ThemeIcon--Current {
-  transform: translateY(0);
-}
-
-.DarkIcon.NavBar__ThemeIcon--Next {
-  transform: translateY(0px);
-}
-
-.HighContrastIcon.NavBar__ThemeIcon--Previous {
-  transform: translateY(-150px);
-}
-
-/*  */
-.LightIcon.NavBar__ThemeIcon--Previous {
-  transform: translateY(-50px);
-}
-
-.DarkIcon.NavBar__ThemeIcon--Current {
-  transform: translateY(-50px);
-}
-
-.HighContrastIcon.NavBar__ThemeIcon--Next {
-  transform: translateY(-50px);
-}
-
-/*  */
-.LightIcon.NavBar__ThemeIcon--Next {
-  transform: translateY(50px);
-}
-
-.DarkIcon.NavBar__ThemeIcon--Previous {
-  transform: translateY(-100px);
-}
-
-.HighContrastIcon.NavBar__ThemeIcon--Current {
-  transform: translateY(-100px);
-}
-
 .NavBar__SideNavExpander {
   transition: color border-color var(--transition-timing);
   border: 1px solid var(--secondary);

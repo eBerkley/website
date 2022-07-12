@@ -7,6 +7,7 @@ export default function SectionsInArticle({ article }) {
   const current = (sectionName) => {
     if (section && sectionName === section.childNodes[0].id) return true;
   };
+
   return (
     <>
       <h4 id="SectionsHeader">In This Article</h4>

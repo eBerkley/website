@@ -25,9 +25,8 @@ export default function NavBar(props) {
         <button
           onClick={(e) => {
             props.setSideNavExpanded(true);
-            e.stopPropagation();
           }}
-          disabled={props.sideNavExpanded}
+          // disabled={props.sideNavExpanded}
           className={`NavBar__SideNavExpander${
             !props.mobile ? " NavBar__SideNavExpander--Hidden" : ""
           }`}

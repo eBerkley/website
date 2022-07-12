@@ -52,3 +52,15 @@
 .SideNav__ArticleName--isActive {
   text-decoration: underline;
 }
+
+.SideNav__ResponsiveContent {
+  border-bottom: 1px solid var(--tertiary);
+  height: var(--medium);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.SideNav--Hidden {
+  display: none;
+}

@@ -7,6 +7,8 @@ import ArticlesList from "../components/ArticlesList";
 import ArticleMain from "../components/ArticleMain";
 import SectionsInArticle from "../components/SectionsInArticle";
 
+
+
 export default function AllArticles() {
   const { device, setSideNavData } = useView();
   const { articleName = "fakeArticle1" } = useParams();
@@ -25,36 +27,18 @@ export default function AllArticles() {
     };
   }, [setSideNavData, article]);
 
-  if (device === "mobile") {
-    return (
-      <div className="BelowNav">
-        <ArticleMain article={article} />
-      </div>
-    );
-  }
-
-  if (device === "tablet") {
-    return (
-      <div className="BelowNav">
-        <nav className="SideNav">
-          <SectionsInArticle article={article.content} />
-          <ArticlesList articles={fakeArticles} />
-        </nav>
-        <ArticleMain article={article} />
-      </div>
-    );
-  }
 
   return (
     <div className="BelowNav">
-      <nav className="SideNav">
-        <ArticlesList articles={fakeArticles} />
+      <nav className={`SideNav${device === "mobile" ? " SideNav--Hidden" : ""}`}>
+        {device === "tablet" && <SectionsInArticle article={article.content} />}
+        <ArticlesList articles={fakeArticles}/>
       </nav>
-      <ArticleMain article={article} />
-      <nav className="SideNav">
+      <ArticleMain article={article}/>
+
+      <nav className={`SideNav${device !== "monitor" ? " SideNav--Hidden": ""}`}>
         <SectionsInArticle article={article.content} />
       </nav>
     </div>
   );
-  // return <Outlet />;
 }

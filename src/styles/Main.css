@@ -29,7 +29,7 @@ main {
   line-height: 1;
   display: inline-flex;
   color: var(--tertiary);
-  /* text-decoration: none; */
+  text-decoration: none;
 }
 
 .Main__P {

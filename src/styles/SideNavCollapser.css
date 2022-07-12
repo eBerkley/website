@@ -18,3 +18,7 @@
 .SideNavCollapser--Hidden {
   display: none;
 }
+
+.SideNavCollapser .SideNav {
+  width: var(--large);
+}

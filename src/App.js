@@ -1,10 +1,12 @@
 import { Outlet } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import NavBar from "./components/NavBar";
 import useWindowWidth from "./utils/useWindowWidth";
 import ResponsiveNavContent from "./components/ResponsiveNavContent";
 import { AppContext } from "./utils/AppContext";
 import useImprovedToc from "./utils/useImprovedToc";
+import useAutoThemeSetter from "./utils/useAutoThemeSetter";
+import useSideNavResponder from "./utils/useSideNavResponder";
 
 export default function App() {
   const ref = useRef();
@@ -17,47 +19,9 @@ export default function App() {
 
   const section = useImprovedToc();
 
-  useEffect(() => {
-    const r = document.querySelector(":root");
-    localStorage.setItem("theme", theme);
-    if (theme === "Dark") {
-      r.style.setProperty("--primary", "hsl(0, 0%, 10%)");
-      r.style.setProperty("--secondary", "hsl(0, 0%, 100%)");
-    } else if (theme === "Light") {
-      r.style.setProperty("--primary", "hsl(0, 0%, 100%)");
-      r.style.setProperty("--secondary", "hsl(0, 0%, 0%)");
-    } else {
-      r.style.setProperty("--primary", "hsl(0, 0%, 0%)");
-      r.style.setProperty("--secondary", "hsl(0, 0%, 100%)");
-    }
-  }, [theme]);
+  useAutoThemeSetter(theme);
 
-  useEffect(() => {
-    // collapses sidenav
-    const clickListener = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {
-        setSideNavExpanded(false);
-      }
-    };
-
-    const escListener = (e) => {
-      if (e.code === "Escape") {
-        setSideNavExpanded(false);
-      }
-    };
-
-    if (sideNavExpanded) {
-      ref.current.focus(); // allows esc to close sidebar and snaps tab navigation to sidebar
-      if (device == "mobile") {
-        document.addEventListener("keydown", escListener);
-        document.addEventListener("click", clickListener);
-      } else {
-        setSideNavExpanded(false);
-        document.removeEventListener("click", clickListener);
-        document.removeEventListener("keydown", escListener);
-      }
-    }
-  }, [device, sideNavExpanded]);
+  useSideNavResponder(device, sideNavExpanded, ref, setSideNavExpanded);
 
   const getCollapsed = () => {
     if (device !== "mobile") return "SideNavCollapser SideNavCollapser--Hidden";
@@ -79,7 +43,6 @@ export default function App() {
     <AppContext.Provider value={context}>
       <div
         className={sideNavExpanded ? "Subroot Subroot--Expanded" : "Subroot"}
-        tabIndex="-1"
       >
         <NavBar
           setSideNavExpanded={setSideNavExpanded}
@@ -90,9 +53,13 @@ export default function App() {
           ref={ref}
           className={getCollapsed()}
           aria-hidden={device !== "mobile"}
+          onFocus={() => setSideNavExpanded(true)}
+          onBlur={() => setSideNavExpanded(false)}
         >
           <nav className="SideNav">
-            <ResponsiveNavContent display={device === "mobile"} />
+            <div className="SideNav__ResponsiveContent">
+              <ResponsiveNavContent />
+            </div>
             {OutletSideNavData}
           </nav>
         </div>
