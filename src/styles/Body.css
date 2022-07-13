@@ -31,5 +31,5 @@ button:hover {
 }
 
 .BelowNav__HomeDiv {
-  padding: 0 var(--hBodyPadding);
+  padding: 0 var(--hBodyPadding) var(--medium) var(--hBodyPadding);
 }

@@ -1,10 +1,8 @@
 .Footer {
   padding: var(--small);
   border-top: 1px solid var(--tertiary);
-  background-color: hsl(0, 0%, 20%);
+  background-color: hsl(0, 0%, 25%);
   color: #fff;
-  /* position:fixed; */
-  /* display: none; */
   font-size: .9rem;
 }
 

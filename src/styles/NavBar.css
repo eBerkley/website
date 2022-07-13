@@ -15,7 +15,7 @@
 .NavBar__A:not(.NavBar__A--isActive):hover,
 .NavBar__A:not(.NavBar__A--isActive):focus,
 .NavBar__ThemeButton:hover,
-.NavBar__ThemeButton:active {
+.NavBar__ThemeButton:focus {
   border-color: var(--active);
   color: var(--active);
   transition: border-color 0, color 0;
@@ -51,16 +51,10 @@
   color: var(--secondary);
 }
 
-.NavBar__A:not(.NavBar__A--isActive):hover {
-  color: var(--active);
-  transition: 0s;
-}
-
 .NavBar__A--isActive {
   background-color: var(--secondary);
   color: var(--primary);
 }
-
 
 .NavBar__ThemeButton {
   transition: all var(--transition-timing);
