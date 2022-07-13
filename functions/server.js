@@ -1,15 +1,15 @@
 const express = require("express");
 const serverless = require("serverless-http");
 const app = express();
-const router = express.Router();
 const { getResponse, getList } = require("./utils");
+const router = express.Router();
 
-router.get("/api", (req, res) => {
+router.get("/", (req, res) => {
   const data = getList();
   res.send(data);
 });
 
-router.get("/api/:article", (req, res) => {
+router.get("/:article", (req, res) => {
   const { article } = req.params;
   const data = getResponse(article);
   if (data) {
@@ -19,9 +19,9 @@ router.get("/api/:article", (req, res) => {
   }
 });
 
-app.use("/.netlify/functions", router);
+app.use("/.netlify/functions/api", router);
 
-app.use("/*", (req, res) =>
+app.get("/*", (req, res) =>
   res.sendFile(path.join(__dirname, "../build", "index.html"))
 );
 
