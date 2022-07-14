@@ -1,17 +1,15 @@
 const express = require("express");
+const serverless = require("serverless-http");
 const app = express();
-const path = require("path");
 const { getResponse, getList } = require("./utils");
-const PORT = process.env.PORT || 3000;
+const router = express.Router();
 
-app.use(express.static(path.join(__dirname, "../build")));
-
-app.get("/api", (req, res) => {
+router.get("/", (req, res) => {
   const data = getList();
   res.send(data);
 });
 
-app.get("/api/:article", (req, res) => {
+router.get("/:article", (req, res) => {
   const { article } = req.params;
   const data = getResponse(article);
   if (data) {
@@ -21,10 +19,10 @@ app.get("/api/:article", (req, res) => {
   }
 });
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build", "index.html"));
-});
+app.use("/.netlify/functions/api", router);
 
-app.listen(PORT, () => {
-  console.log("listening");
-});
+app.get("/*", (req, res) =>
+  res.sendFile(path.join(__dirname, "../build", "index.html"))
+);
+
+module.exports.handler = serverless(app);
